@@ -33,13 +33,8 @@ export const CustomCursor = () => {
       requestAnimationFrame(animateOutline);
     };
 
-    const handleMouseDown = () => {
-      outline.classList.add(styles.clicking);
-    };
-
-    const handleMouseUp = () => {
-      outline.classList.remove(styles.clicking);
-    };
+    const handleMouseDown = () => outline.classList.add(styles.clicking);
+    const handleMouseUp = () => outline.classList.remove(styles.clicking);
 
     // Handle interactive scaling elements (e.g., links, buttons)
     const addHoverState = () => outline.classList.add(styles.hovering);
@@ -53,10 +48,26 @@ export const CustomCursor = () => {
       });
     };
 
-    // Global interaction attachments
+    // NEW: Handle user leaving the page viewport (e.g. going to Inspect Element)
+    const handleMouseLeaveWindow = () => {
+      document.documentElement.classList.add('devtools-active');
+      dot.style.opacity = '0';
+      outline.style.opacity = '0';
+    };
+
+    const handleMouseEnterWindow = () => {
+      document.documentElement.classList.remove('devtools-active');
+      dot.style.opacity = '1';
+      outline.style.opacity = '1';
+    };
+
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('mousedown', handleMouseDown);
     window.addEventListener('mouseup', handleMouseUp);
+    
+    // Attach window border checks
+    document.addEventListener('mouseleave', handleMouseLeaveWindow);
+    document.addEventListener('mouseenter', handleMouseEnterWindow);
     
     // Initial run for layout tracking
     const animationId = requestAnimationFrame(animateOutline);
@@ -70,6 +81,8 @@ export const CustomCursor = () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mousedown', handleMouseDown);
       window.removeEventListener('mouseup', handleMouseUp);
+      document.removeEventListener('mouseleave', handleMouseLeaveWindow);
+      document.removeEventListener('mouseenter', handleMouseEnterWindow);
       cancelAnimationFrame(animationId);
       observer.disconnect();
     };

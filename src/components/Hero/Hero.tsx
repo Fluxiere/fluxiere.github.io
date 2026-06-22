@@ -2,6 +2,8 @@ import styles from './Hero.module.scss';
 import { StatsGrid } from "../StatsGrid/StatsGrid.tsx";
 import { FlowPanel } from '../FlowPanel/FlowPanel.tsx';
 import { NeuralNetwork } from '../ProceduralAnimations/NeuralNetwork/NeuralNetwork.tsx';
+import { HeroCopy } from './HeroConstants.tsx';
+
 export const Hero = () => {
   return (
     <section className={styles.hero}>
@@ -13,18 +15,16 @@ export const Hero = () => {
 
           <span className={styles.eyebrow}>
             <span className={styles.ping}></span>
-            Fluxière · AI Automation &amp; Custom Software
+            {HeroCopy.eyebrow}
           </span>
           
           <h1 className={styles.title}>
-            Automate the busywork.<br />
-            Keep the judgment <em>human</em>.
+            {HeroCopy.titleLine1}<br />
+            {HeroCopy.titleLine2Prefix}<em>{HeroCopy.titleEmphasis}</em>
           </h1>
           
           <p className={styles.sub}>
-            We build AI automation and custom software for small and mid-sized businesses — 
-            replacing manual, repetitive work with systems that run themselves, so your team 
-            can focus on decisions that need a person.
+            {HeroCopy.description}
           </p>
           
           <div className={styles.actions}>

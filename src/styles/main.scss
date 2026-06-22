@@ -29,15 +29,20 @@ img, svg {
   max-width: 100%;
 }
 
+// The .wrap container centers page content and applies global
+// horizontal spacing for all sections that use the shared wrapper.
+// Adjust this padding to change left/right page gutters for the whole site.
 .wrap {
-  max-width: 1240px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0;
+  margin-top: 72px;
 
   @media (max-width: 720px) {
     padding: 0 20px;
   }
 }
+
 
 ::selection {
   background: $gold-soft;
@@ -53,7 +58,7 @@ input:focus-visible {
 
 // Global utility layout helpers
 .sec {
-  padding: 120px 0;
+  // padding: 120px 0;
   
   &.tight {
     padding: 88px 0;
