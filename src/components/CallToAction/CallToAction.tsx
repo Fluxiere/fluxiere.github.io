@@ -4,7 +4,7 @@ export const CallToAction = () => {
   const auditPoints = ['30-minute audit call', 'Written savings estimate', 'No card required'];
 
   return (
-    <section className={styles.biz}>
+    <section className={styles.biz} id="CallToAction">
       <div className="wrap">
         <div className={styles.bizCard}>
           <div className={styles.left}>

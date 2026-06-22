@@ -10,7 +10,7 @@ export const Results = () => {
   ];
 
   return (
-    <section className={styles.results} id="work">
+    <section className={styles.results} id="Results">
       <div className="wrap">
         <div className={styles.top}>
           <h2>Time and cost saved, measured in hours back to your team — not promises.</h2>
