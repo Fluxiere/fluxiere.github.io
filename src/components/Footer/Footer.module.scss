@@ -1,0 +1,135 @@
+@use '../../styles/variables' as *;
+
+.footer {
+  background: $cream-dim;
+  border-top: 1px solid $line;
+  padding: 80px 0 40px;
+}
+
+.footGrid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: 64px;
+  margin-bottom: 64px;
+
+  @media (max-width: 920px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+
+  @media (max-width: 520px) {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.brandCol {
+  .logo {
+    font-family: $font-display;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: $ink;
+    margin-bottom: 16px;
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: $teal;
+    }
+  }
+}
+
+.blurb {
+  font-size: 14px;
+  color: rgba($ink, 0.6);
+  line-height: 1.6;
+}
+
+.linkCol {
+  h5 {
+    font-family: $font-mono;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba($ink, 0.4);
+    margin-bottom: 16px;
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    a {
+      font-size: 14.5px;
+      color: rgba($ink, 0.75);
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $teal-dark;
+      }
+    }
+  }
+}
+
+.newsCol {
+  h5 {
+    font-family: $font-mono;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba($ink, 0.4);
+    margin-bottom: 16px;
+  }
+
+  .blurb {
+    margin-bottom: 14px;
+  }
+}
+
+.field {
+  input {
+    font-family: $font-body;
+    font-size: 14px;
+    padding: 11px 14px;
+    background: #ffffff;
+    border: 1px solid $line;
+    border-radius: 3px;
+    color: $ink;
+    width: 100%;
+    
+    &:focus {
+      outline: none;
+      border-color: $teal;
+    }
+  }
+}
+
+.footBottom {
+  border-top: 1px solid $line;
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: rgba($ink, 0.45);
+
+  @media (max-width: 520px) {
+    flex-direction: column;
+    gap: 14px;
+  }
+}
+
+.legal {
+  display: flex;
+  gap: 20px;
+
+  a:hover {
+    color: $ink;
+  }
+}

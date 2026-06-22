@@ -1,0 +1,78 @@
+@use '../../styles/variables' as *;
+
+.insightsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+
+  @media (max-width: 880px) {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.artCard {
+  background: #ffffff;
+  border: 1px solid $line;
+  border-radius: 4px;
+  padding: 36px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: rgba($teal, 0.4);
+    box-shadow: 0 6px 16px rgba($ink, 0.03);
+  }
+
+  h3 {
+    font-family: $font-display;
+    font-size: 18.5px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: $ink;
+    margin: 20px 0;
+  }
+}
+
+.topMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tag {
+  font-family: $font-mono;
+  font-size: 11px;
+  color: $gold;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.readTime {
+  font-family: $font-mono;
+  font-size: 11px;
+  color: rgba($ink, 0.4);
+}
+
+.actionRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: $teal-dark;
+
+  .arrow {
+    transition: transform 0.2s ease;
+  }
+}
+
+.artCard:hover {
+  .actionRow .arrow {
+    transform: translateX(4px);
+  }
+}

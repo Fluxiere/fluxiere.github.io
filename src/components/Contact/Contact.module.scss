@@ -1,0 +1,134 @@
+@use '../../styles/variables' as *;
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 88px;
+  align-items: flex-start;
+
+  @media (max-width: 880px) {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+.headline {
+  font-family: $font-display;
+  font-weight: 600;
+  font-size: clamp(28px, 3.4vw, 40px);
+  line-height: 1.15;
+  color: $ink;
+}
+
+.subtext {
+  font-size: 16px;
+  color: rgba($ink, 0.6);
+  line-height: 1.6;
+  margin-top: 18px;
+}
+
+.channels {
+  margin-top: 48px;
+  border-top: 1px solid $line;
+  padding-top: 32px;
+  display: flex;
+  gap: 40px;
+}
+
+.channel {
+  .chTitle {
+    font-family: $font-mono;
+    font-size: 11.5px;
+    color: rgba($ink, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+
+  a {
+    font-size: 15px;
+    font-weight: 600;
+    color: $teal-dark;
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      border-color: $teal-dark;
+    }
+  }
+}
+
+.formWrapper {
+  background: #ffffff;
+  border: 1px solid $line;
+  border-radius: 4px;
+  padding: 40px;
+
+  @media (max-width: 480px) {
+    padding: 24px;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  label {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: rgba($ink, 0.85);
+  }
+
+  input, textarea {
+    font-family: $font-body;
+    font-size: 14.5px;
+    padding: 12px 14px;
+    background: $cream;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    color: $ink;
+    width: 100%;
+    transition: border-color 0.2s ease;
+
+    &::placeholder {
+      color: rgba($ink, 0.35);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $teal;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+  }
+}
+
+.submitBtn {
+  font-family: $font-body;
+  font-weight: 600;
+  font-size: 14.5px;
+  padding: 14px;
+  background: $ink;
+  color: $cream;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.2s ease, transform 0.1s ease;
+
+  &:hover {
+    background: $teal;
+  }
+
+  &:active {
+    transform: scale(0.99);
+  }
+}

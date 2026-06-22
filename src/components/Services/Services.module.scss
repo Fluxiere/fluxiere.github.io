@@ -1,0 +1,104 @@
+@use '../../styles/variables' as *;
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: $line;
+  border: 1px solid $line;
+
+  @media (max-width: 920px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 620px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.svc {
+  background: $cream;
+  padding: 36px 30px;
+  position: relative;
+  transition: background 0.25s ease;
+
+  &:hover {
+    background: #ffffff;
+  }
+
+  .tag {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    font-family: $font-mono;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: $gold;
+    border: 1px solid rgba($gold, 0.4);
+    padding: 3px 8px;
+    border-radius: 10px;
+  }
+
+  .num {
+    font-family: $font-mono;
+    font-size: 12px;
+    color: rgba($ink, 0.35);
+    margin-bottom: 22px;
+    display: block;
+  }
+
+  h3 {
+    font-family: $font-display;
+    font-weight: 600;
+    font-size: 21px;
+    margin-bottom: 10px;
+    padding-right: 40px;
+    color: $ink;
+  }
+
+  .desc {
+    font-size: 14.5px;
+    color: rgba($ink, 0.6);
+    line-height: 1.55;
+    margin-bottom: 18px;
+  }
+
+  ul {
+    list-style: none;
+    margin-bottom: 20px;
+
+    li {
+      font-size: 13.5px;
+      color: rgba($ink, 0.68);
+      padding-left: 16px;
+      position: relative;
+      margin-bottom: 7px;
+
+      &::before {
+        content: '—';
+        position: absolute;
+        left: 0;
+        color: $teal;
+      }
+    }
+  }
+
+  .go {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: $teal-dark;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    .arrow {
+      transition: transform 0.2s ease;
+    }
+  }
+
+  &:hover {
+    .go .arrow {
+      transform: translateX(4px);
+    }
+  }
+}

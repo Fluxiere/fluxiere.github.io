@@ -1,0 +1,40 @@
+@use '../../styles/variables' as *;
+
+.stackStrip {
+  overflow: hidden;
+  border-top: 1px solid $line;
+  border-bottom: 1px solid $line;
+  padding: 22px 0;
+  background: $ink;
+  display: flex;
+}
+
+.stackTrack {
+  display: flex;
+  gap: 32px;
+  width: max-content;
+  white-space: nowrap;
+  animation: scroll 28s linear infinite;
+}
+
+.trackItem {
+  font-family: $font-mono;
+  font-size: 13.5px;
+  color: rgba($cream, 0.55);
+  display: inline-flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.dot {
+  color: rgba($cream, 0.3);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

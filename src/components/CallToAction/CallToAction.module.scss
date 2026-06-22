@@ -1,0 +1,122 @@
+@use '../../styles/variables' as *;
+
+.biz {
+  padding: 100px 0;
+}
+
+.bizCard {
+  background: $ink;
+  color: $cream;
+  border-radius: 8px;
+  padding: 64px 56px;
+  display: flex;
+  justify-content: space-between;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -120px;
+    right: -60px;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba($gold, 0.22), transparent 70%);
+    pointer-events: none;
+  }
+
+  @media (max-width: 780px) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 44px 30px;
+  }
+}
+
+.left {
+  max-width: 520px;
+  position: relative;
+  z-index: 1;
+
+  :global(.sec-eyebrow) {
+    color: $gold;
+  }
+
+  h2 {
+    font-family: $font-display;
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 600;
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+
+  p {
+    color: rgba($cream, 0.62);
+    font-size: 15.5px;
+    line-height: 1.6;
+  }
+}
+
+.bizList {
+  display: flex;
+  gap: 24px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+
+  span {
+    font-family: $font-mono;
+    font-size: 12.5px;
+    color: rgba($cream, 0.7);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    &::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: $teal;
+    }
+  }
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+  width: nowrap;
+
+  @media (max-width: 780px) {
+    width: 100%;
+    
+    :global(.btn-primary) {
+      text-align: center;
+      justify-content: center;
+    }
+  }
+
+  :global(.btn-primary) {
+    background: $teal;
+    color: $ink;
+
+    &:hover {
+      background: $gold;
+    }
+  }
+}
+
+.alt {
+  font-size: 14px;
+  color: rgba($cream, 0.6);
+  text-align: center;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $cream;
+  }
+}
