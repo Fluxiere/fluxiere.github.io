@@ -1,4 +1,4 @@
-@use '../../styles/variables' as *;
+@use '../../../styles/variables' as *;
 
 .neuralCanvas {
   position: absolute;
@@ -6,7 +6,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none; // Allows clicking/selecting content layers sitting above it
-  z-index: 0;
-  opacity: 0.85; // Subtle integration with background layers
+  pointer-events: none; 
+  z-index: 1; // Explicitly map layers over background colors
+  opacity: 1; 
 }

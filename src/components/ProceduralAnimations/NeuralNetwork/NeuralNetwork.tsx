@@ -8,8 +8,8 @@ interface NeuralNetworkProps {
 }
 
 export const NeuralNetwork: React.FC<NeuralNetworkProps> = ({
-  nodeCount = 85,
-  maxDistance = 150,
+  nodeCount = 65, // Balanced count for a smaller container space
+  maxDistance = 130,
   interactive = true,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -22,12 +22,15 @@ export const NeuralNetwork: React.FC<NeuralNetworkProps> = ({
     if (!ctx) return;
 
     let animationFrameId: number;
-    let W = (canvas.width = window.innerWidth);
-    let H = (canvas.height = window.innerHeight);
+    
+    // FIX 1: Measure the container boundaries instead of the global window viewport
+    let rect = canvas.getBoundingClientRect();
+    let W = (canvas.width = rect.width);
+    let H = (canvas.height = rect.height);
+    
     let mouseX = -1000;
     let mouseY = -1000;
 
-    // Node blueprint
     class Node {
       x!: number;
       y!: number;
@@ -58,18 +61,16 @@ export const NeuralNetwork: React.FC<NeuralNetworkProps> = ({
         this.y += this.vy;
         this.pulse += this.pulseSpeed;
 
-        // Interaction: Subtle repulsion away from the cursor position
         if (interactive) {
           const dx = this.x - mouseX;
           const dy = this.y - mouseY;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 130) {
+          if (dist < 110) {
             this.x += (dx / dist) * 0.8;
             this.y += (dy / dist) * 0.8;
           }
         }
 
-        // Screen boundary self-healing wrapped loop
         if (this.x < -20) this.x = W + 20;
         if (this.x > W + 20) this.x = -20;
         if (this.y < -20) this.y = H + 20;
@@ -77,19 +78,21 @@ export const NeuralNetwork: React.FC<NeuralNetworkProps> = ({
       }
     }
 
-    // Populate node arrays
     const nodes: Node[] = Array.from({ length: nodeCount }, () => new Node());
 
-    // Event Handlers
+    // FIX 2: Recalculate dimensions dynamically based on container shifts
     const handleResize = () => {
       if (!canvas) return;
-      W = canvas.width = window.innerWidth;
-      H = canvas.height = window.innerHeight;
+      rect = canvas.getBoundingClientRect();
+      W = canvas.width = rect.width;
+      H = canvas.height = rect.height;
     };
 
+    // FIX 3: Offset cursor coordinates to map 1:1 onto the relative container element canvas space
     const handleMouseMove = (e: MouseEvent) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
+      rect = canvas.getBoundingClientRect();
+      mouseX = e.clientX - rect.left;
+      mouseY = e.clientY - rect.top;
     };
 
     const handleMouseLeave = () => {
@@ -103,73 +106,71 @@ export const NeuralNetwork: React.FC<NeuralNetworkProps> = ({
       document.addEventListener('mouseleave', handleMouseLeave);
     }
 
-    // Animation Render loop
     const render = () => {
       ctx.clearRect(0, 0, W, H);
 
-      // 1. Draw web connection lines
-      for (let i = 0; i < nodes.length; i++) {
-        for (let j = i + 1; j < nodes.length; j++) {
-          const dx = nodes[i].x - nodes[j].x;
-          const dy = nodes[i].y - nodes[j].y;
-          const d = Math.sqrt(dx * dx + dy * dy);
+// Web connections loop
+for (let i = 0; i < nodes.length; i++) {
+  for (let j = i + 1; j < nodes.length; j++) {
+    const dx = nodes[i].x - nodes[j].x;
+    const dy = nodes[i].y - nodes[j].y;
+    const d = Math.sqrt(dx * dx + dy * dy);
 
-          if (d < maxDistance) {
-            const baseAlpha = (1 - d / maxDistance) * 0.14;
-
-            // Proximity tracking boost if cursor is close to structural link midpoint
-            let boost = 0;
-            if (interactive) {
-              const mdx = (nodes[i].x + nodes[j].x) / 2 - mouseX;
-              const mdy = (nodes[i].y + nodes[j].y) / 2 - mouseY;
-              const md = Math.sqrt(mdx * mdx + mdy * mdy);
-              boost = Math.max(0, 1 - md / 220) * 0.35;
-            }
-
-            // High-end Gradient transitions tuned to Fluxière Teal -> transparent accents
-            const grad = ctx.createLinearGradient(nodes[i].x, nodes[i].y, nodes[j].x, nodes[j].y);
-            grad.addColorStop(0, `rgba(46, 175, 155, ${baseAlpha + boost})`); // Teal core
-            grad.addColorStop(1, `rgba(180, 160, 120, ${baseAlpha * 0.4})`); // Fading Gold-tint touch
-
-            ctx.beginPath();
-            ctx.strokeStyle = grad;
-            ctx.lineWidth = 0.75;
-            ctx.moveTo(nodes[i].x, nodes[i].y);
-            ctx.lineTo(nodes[j].x, nodes[j].y);
-            ctx.stroke();
-          }
-        }
+    if (d < maxDistance) {
+      // 1. INCREASED BASE ALPHA (From 0.14 to 0.32) for brighter static lines
+      const baseAlpha = (1 - d / maxDistance) * 0.32;
+      let boost = 0;
+      
+      if (interactive) {
+        const mdx = (nodes[i].x + nodes[j].x) / 2 - mouseX;
+        const mdy = (nodes[i].y + nodes[j].y) / 2 - mouseY;
+        const md = Math.sqrt(mdx * mdx + mdy * mdy);
+        // 2. STRONGER MOUSE GLOW RESPONSE (From 0.35 to 0.55)
+        boost = Math.max(0, 1 - md / 180) * 0.55;
       }
 
-      // 2. Draw the core pulsing nodes
-      nodes.forEach((node) => {
-        node.update();
-        const currentRadius = node.r + Math.sin(node.pulse) * 0.4;
+      const grad = ctx.createLinearGradient(nodes[i].x, nodes[i].y, nodes[j].x, nodes[j].y);
+      // 3. HIGHER COLOR SATURATION FOR LIGHT THEMES
+      grad.addColorStop(0, `rgba(46, 175, 155, ${baseAlpha + boost})`);
+      grad.addColorStop(1, `rgba(140, 120, 90, ${(baseAlpha + boost) * 0.5})`);
 
-        // Visual soft radial glow ring
-        const glowGrad = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, currentRadius * 5);
-        glowGrad.addColorStop(0, `rgba(46, 175, 155, ${node.opacity * 0.4})`);
-        glowGrad.addColorStop(1, 'rgba(46, 175, 155, 0)');
-        
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, currentRadius * 5, 0, Math.PI * 2);
-        ctx.fillStyle = glowGrad;
-        ctx.fill();
+      ctx.beginPath();
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = 1.0; // 4. Slightly thicker stroke width (From 0.75 to 1.0)
+      ctx.moveTo(nodes[i].x, nodes[i].y);
+      ctx.lineTo(nodes[j].x, nodes[j].y);
+      ctx.stroke();
+    }
+  }
+}
 
-        // Exact solid core node
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, currentRadius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(46, 175, 155, ${node.opacity + 0.2})`;
-        ctx.fill();
-      });
+// Drawing Core pulsing nodes loop
+nodes.forEach((node) => {
+  node.update();
+  const currentRadius = node.r + Math.sin(node.pulse) * 0.4;
+
+  // Outer glow ring
+  const glowGrad = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, currentRadius * 6);
+  glowGrad.addColorStop(0, `rgba(46, 175, 155, ${node.opacity * 0.6})`); // 5. Brighter glow anchor
+  glowGrad.addColorStop(1, 'rgba(46, 175, 155, 0)');
+  
+  ctx.beginPath();
+  ctx.arc(node.x, node.y, currentRadius * 6, 0, Math.PI * 2);
+  ctx.fillStyle = glowGrad;
+  ctx.fill();
+
+  // Solid inner node core dot
+  ctx.beginPath();
+  ctx.arc(node.x, node.y, currentRadius, 0, Math.PI * 2);
+  ctx.fillStyle = `rgba(46, 175, 155, ${node.opacity + 0.55})`; // 6. Solidified core opacity
+  ctx.fill();
+});
 
       animationFrameId = requestAnimationFrame(render);
     };
 
-    // Begin looping
     render();
 
-    // Clean up lifecycle pipeline to eliminate resource usage leaks
     return () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', handleResize);

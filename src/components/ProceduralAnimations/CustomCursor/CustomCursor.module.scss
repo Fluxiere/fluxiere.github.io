@@ -1,0 +1,72 @@
+@use '../../../styles/variables' as *;
+
+// Global rule: Hide the default browser system pointer across the application layout
+:global(body) {
+  cursor: none;
+}
+:global(a, button, [role="button"]) {
+  cursor: none;
+}
+
+.cursorDot,
+.cursorOutline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate3d(-100px, -100px, 0); // Hide offscreen initially
+  pointer-events: none; // Essential: allows click actions to fall through to components underneath
+  z-index: 9999;
+  border-radius: 50%;
+  will-change: transform;
+}
+
+// Center point
+.cursorDot {
+  width: 6px;
+  height: 6px;
+  background-color: $teal;
+  margin-left: -3px;
+  margin-top: -3px;
+}
+
+// Trailing ring
+.cursorOutline {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba($teal, 0.45);
+  margin-left: -18px;
+  margin-top: -18px;
+  background-color: rgba($teal, 0.02);
+  transition: width 0.2s ease, height 0.2s ease, margin 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+// Hover state expanding ring when mouse moves over a link or button
+.hovering {
+  width: 54px;
+  height: 54px;
+  margin-left: -27px;
+  margin-top: -27px;
+  background-color: rgba($teal, 0.08);
+  border-color: rgba($teal, 0.8);
+}
+
+// Clicking scale compression effect
+.clicking {
+  width: 28px;
+  height: 28px;
+  margin-left: -14px;
+  margin-top: -14px;
+  background-color: rgba($teal, 0.18);
+  border-color: $teal;
+}
+
+// Performance safety fallback: Remove custom visual items on mobile touch screens
+@media (max-width: 1024px) {
+  .cursorDot,
+  .cursorOutline {
+    display: none !important;
+  }
+  :global(body), :global(a, button, [role="button"]) {
+    cursor: auto !important;
+  }
+}
