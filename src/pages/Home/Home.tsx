@@ -12,7 +12,6 @@ const Home = () => {
       <Services />
       <Testimonials />
       {/* <TrustStrip /> */}
-      <StackStrip />
       {/* <Results /> */}
     </main>
   );

@@ -16,31 +16,33 @@ export interface FlowStep {
 
 export const flowSteps: FlowStep[] = [
   {
-    id: 'inputs',
-    icon: 'IN',
-    label: 'Manual Inputs',
-    subLabel: 'Emails, forms, sheets'
+    id: 'Discovery & Assessment',
+    icon: '📋',
+    label: 'Discovery & Assessment',
+    subLabel: 'Workflow & cost audit · Automation roadmap · Tech stack evaluation'
   },
   {
-    id: 'engine',
-    icon: 'AI',
-    label: 'Fluxière Engine',
-    subLabel: 'Routing · extraction · logic',
-    variantClass: 'active',
-    delayClass: 'delay' // Controls animation sync for the line following this node
+    id: 'Solution Design',
+    icon: '⚙️',
+    label: 'Solution Design',
+    subLabel: 'Architecture mapping · API & data strategy · ROI-prioritized build plan'
   },
   {
-    id: 'systems',
-    icon: '↻',
-    label: 'Your Systems',
-    subLabel: 'CRM · ERP · DB',
-    variantClass: 'gold',
-    delayClass: 'delay2'
+    id: 'Development & Implementation',
+    icon: '💬',
+    label: 'Development & Implementation',
+    subLabel: 'Custom ERP/CRM setups · Bot & assistant training · Cross-platform data sync'
   },
   {
-    id: 'outcomes',
-    icon: 'OUT',
-    label: 'Outcomes',
-    subLabel: 'Reports, alerts, actions'
-  }
+    id: 'Deployment',
+    icon: '💻',
+    label: 'Deployment & Scaling',
+    subLabel: 'Live environment release · Team onboarding · Production pipeline launch'
+  },
+  {
+    id: 'Optimization',
+    icon: '📊',
+    label: 'Optimization & Scaling',
+    subLabel: 'Automated reporting · KPI dashboards · Forecasting & anomaly alerts'
+  },
 ];

@@ -1,0 +1,141 @@
+@use '../../styles/variables' as *; 
+
+.bannerSection {
+  background: #00839e; 
+  padding: 64px 48px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 72px;
+
+  // Dot matrix decorative element
+  &::after {
+    content: '';
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 120px;
+    height: 80%;
+    opacity: 0.25;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.6) 1px, transparent 1px);
+    background-size: 12px 12px;
+    pointer-events: none;
+  }
+
+  @media (max-width: 960px) {
+    padding: 48px 24px;
+    &::after { display: none; }
+  }
+}
+
+.bannerContainer {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: 960px) {
+    flex-direction: column;
+    text-align: center;
+    gap: 28px;
+  }
+}
+
+.textContent {
+  color: #ffffff;
+  text-align: left;
+  max-width: 700px;
+
+  @media (max-width: 960px) {
+    text-align: center;
+  }
+}
+
+.bannerTitle {
+  font-family: $font-display, 'Inter', sans-serif;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.bannerDescription {
+  font-size: clamp(14px, 1.5vw, 15px);
+  opacity: 0.9;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.bannerActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+
+  @media (max-width: 540px) {
+    flex-direction: column;
+    width: 100%;
+    
+    a {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+.btnWhite {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  color: #00839e;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 14px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, background 0.2s ease;
+
+  .arrow {
+    margin-left: 6px;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover {
+    background: #f8fafc;
+    transform: translateY(-1px);
+    
+    .arrow {
+      transform: translateX(3px);
+    }
+  }
+}
+
+.btnGold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #b68d59; 
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 14px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+
+  &:hover {
+    background: #a37c4b;
+    transform: translateY(-1px);
+  }
+}
