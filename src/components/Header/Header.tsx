@@ -1,37 +1,29 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link
 import styles from './Header.module.scss';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(prev => !prev);
-  };
-
   return (
     <header className={styles.siteHeader}>
       <div className={styles.navContainer}>
-        <a href="#" className={styles.logo}>
+        <Link to="/home" className={styles.logo} onClick={() => setIsMenuOpen(false)}>
           <span className={styles.dot}></span>
           Fluxière
-        </a>
+        </Link>
         
-        {/* Toggle navigation visibility based on mobile menu state */}
         <nav className={`${styles.links} ${isMenuOpen ? styles.mobileOpen : ''}`}>
-          <a href="#services" onClick={() => setIsMenuOpen(false)}>Services</a>
-          <a href="#process" onClick={() => setIsMenuOpen(false)}>Approach</a>
-          <a href="#work" onClick={() => setIsMenuOpen(false)}>Results</a>
-          <a href="#insights" onClick={() => setIsMenuOpen(false)}>Insights</a>
-          <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
+          <Link to="/home" onClick={() => setIsMenuOpen(false)}>Home</Link>
+          <Link to="/services" onClick={() => setIsMenuOpen(false)}>Services</Link>
+          <Link to="/about" onClick={() => setIsMenuOpen(false)}>Approach</Link>
+          <Link to="/gallery" onClick={() => setIsMenuOpen(false)}>Insights</Link>
+          <Link to="/contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
         </nav>
 
         <div className={styles.actions}>
-          <a href="#contact" className={styles.navCta}>Book a Consultation</a>
-          <button 
-            className={styles.navToggle} 
-            onClick={toggleMenu}
-            aria-label="Toggle navigation menu"
-          >
+          <Link to="/contact" className={styles.navCta}>Book a Consultation</Link>
+          <button className={styles.navToggle} onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? 'CLOSE' : '// MENU'}
           </button>
         </div>
