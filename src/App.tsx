@@ -5,7 +5,7 @@ import { Footer } from "./components/Footer/Footer";
 import { CustomCursor } from "./components/ProceduralAnimations/CustomCursor/CustomCursor";
 
 function App() {
-  const baseName = import.meta.env.BASE_URL || "/";
+  const baseName = import.meta.env.BASE_URL || "/fluxiere/";
   
   return (
     <BrowserRouter basename={baseName}>
