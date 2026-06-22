@@ -10,39 +10,39 @@ export const servicesDescription =
 
 export const servicesData: ServiceItem[] = [
   {
-    num: '01',
+    num: '🤖',
     tag: 'Most Requested',
     title: 'AI Process Automation',
     desc: 'We map your repetitive workflows and replace them with AI-driven pipelines that run on their own.',
     features: ['Document & data extraction', 'Approval & routing workflows', 'Email, WhatsApp & CRM automation']
   },
   {
-    num: '02',
+    num: '💬',
     title: 'AI Chatbots & Assistants',
     desc: "Conversational systems that handle support, sales, and internal queries in your business's own voice.",
     features: ['Customer support assistants', 'RAG / knowledge-base search', 'Lead qualification bots']
   },
   {
-    num: '03',
+    num: '💻',
     tag: 'Most Requested',
     title: 'Custom Software (ERP/CRM)',
     desc: 'Tailored internal systems built around how your team actually works — not the other way round.',
     features: ['Custom ERP & CRM platforms', 'Internal dashboards & tools', 'Inventory & operations systems']
   },
   {
-    num: '04',
+    num: '📊',
     title: 'Data & Analytics Automation',
     desc: 'Live dashboards and scheduled reporting that pull from every system you already use.',
     features: ['Automated reporting pipelines', 'KPI & ops dashboards', 'Forecasting & anomaly alerts']
   },
   {
-    num: '05',
+    num: '🔗',
     title: 'Systems Integration',
     desc: 'We connect the tools you already run — payments, accounting, marketing — into one working loop.',
     features: ['API & third-party integrations', 'Legacy system modernization', 'Cross-platform data sync']
   },
   {
-    num: '06',
+    num: '♞',
     title: 'Strategy & Audit',
     desc: 'A practical audit of where AI and automation will save your business the most time, before we build anything.',
     features: ['Workflow & cost audit', 'Automation roadmap', 'ROI-prioritized build plan']
