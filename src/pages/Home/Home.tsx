@@ -2,7 +2,7 @@ import { Hero } from '../../components/Hero/Hero';
 // import { TrustStrip } from '../../components/TrustStrip/TrustStrip';
 // import { StackStrip } from '../../components/StackStrip/StackStrip';
 import { Testimonials } from '../../components/Testimonials/Testimonials';
-import Services from '../Services/Services';
+import { Services } from '../../components/Services/Services';
 // import { Results } from '../../components/Results/Results';
 
 const Home = () => {

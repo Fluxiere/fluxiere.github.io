@@ -1,0 +1,206 @@
+@use '../../styles/variables' as *; // Keeps your design tokens consistent
+
+.detailedSection {
+  background: $cream; // Blends with your project's clean palette
+  padding: 100px 0;
+  border-top: 1px solid $line;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 45% 50%;
+  gap: 5%;
+  position: relative;
+
+  @media (max-width: 960px) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0 24px;
+  }
+}
+
+// Sticky Left Column Mechanics
+.stickyLeft {
+  position: sticky;
+  top: 120px;
+  height: fit-content;
+
+  @media (max-width: 960px) {
+    position: relative;
+    top: 0;
+  }
+
+  .eyebrow {
+    font-family: $font-mono;
+    color: $gold;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .mainTitle {
+    font-family: $font-display;
+    font-size: 36px;
+    color: $ink;
+    line-height: 1.25;
+    margin-bottom: 40px;
+    font-weight: 600;
+  }
+}
+
+// Side Navigation for Skimming
+.stepNav {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @media (max-width: 960px) {
+    display: none; // Hides complex side-nav on mobile views for straightforward scrolling
+  }
+}
+
+.navBtn {
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-align: left;
+  cursor: pointer;
+  padding: 12px 0;
+  opacity: 0.4;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid transparent;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &.active {
+    opacity: 1;
+    
+    .navNum {
+      color: $teal;
+    }
+    .navText {
+      color: $ink;
+      transform: translateX(4px);
+    }
+  }
+
+  .navNum {
+    font-family: $font-mono;
+    font-size: 14px;
+    font-weight: 600;
+    color: $ink;
+    transition: color 0.3s;
+  }
+
+  .navText {
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba($ink, 0.8);
+    transition: transform 0.3s, color 0.3s;
+  }
+}
+
+// Scroll Right Column Content
+.scrollRight {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+
+  @media (max-width: 960px) {
+    gap: 48px;
+  }
+}
+
+.stepCard {
+  background: #ffffff;
+  border: 1px solid $line;
+  padding: 48px;
+  border-radius: 4px;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+
+  &:hover {
+    border-color: rgba($teal, 0.3);
+    box-shadow: 0 12px 40px rgba($ink, 0.03);
+  }
+
+  @media (max-width: 640px) {
+    padding: 24px;
+  }
+}
+
+.cardHeader {
+  margin-bottom: 20px;
+
+  .phaseBadge {
+    font-family: $font-mono;
+    font-size: 11px;
+    color: $teal-dark;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  h3 {
+    font-family: $font-display;
+    font-size: 24px;
+    color: $ink;
+    font-weight: 600;
+  }
+}
+
+.description {
+  font-size: 15px;
+  color: rgba($ink, 0.7);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+// Tangible Deliverables Highlight Box
+.deliverablesBox {
+  background: rgba($cream, 0.5);
+  border-left: 3px solid $teal;
+  padding: 24px;
+  border-radius: 0 4px 4px 0;
+
+  h4 {
+    font-size: 13px;
+    text-transform: uppercase;
+    font-family: $font-mono;
+    color: $ink;
+    letter-spacing: 0.05em;
+    margin-bottom: 14px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    li {
+      font-size: 14px;
+      color: rgba($ink, 0.85);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.4;
+    }
+
+    .checkIcon {
+      color: $teal;
+      font-weight: bold;
+    }
+  }
+}
