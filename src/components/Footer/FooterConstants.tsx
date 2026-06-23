@@ -15,9 +15,9 @@ export const footerServices = [
 
 export const footerCompanyLinks = [
   { label: 'Home', to: '/' },
+  { label: 'Services', to: '/services' },
   { label: 'About', to: '/about' },
-  { label: 'Results', to: '/home' },
-  { label: 'Insights', to: '/gallery' },
+  { label: 'Insights', to: '/insights' },
   { label: 'Contact', to: '/contact' },
 ];
 

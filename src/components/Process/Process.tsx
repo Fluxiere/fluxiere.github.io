@@ -1,3 +1,4 @@
+//Not in use yet, but will be used for the process section in the future
 import { type ProcessStep } from './types';
 import styles from './Process.module.scss';
 

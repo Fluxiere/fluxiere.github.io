@@ -24,7 +24,7 @@ export const Insights = () => {
   ];
 
   return (
-    <section className="sec" id="insights">
+    <section className="sec" id="insights Component">
       <div className="wrap">
         <div className="sec-head">
           <span className="sec-eyebrow">Our Notebook</span>
