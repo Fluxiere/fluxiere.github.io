@@ -1,0 +1,250 @@
+@use '../../styles/variables' as *;
+
+.processSection {
+  background: $ink;
+  color: $cream;
+  padding: 100px 0;
+  border-bottom: 1px solid rgba($line, 0.15);
+}
+
+.sectionHead {
+  max-width: 600px;
+  margin-bottom: 56px;
+
+  .eyebrow {
+    font-family: $font-mono;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: $teal;
+    background: rgba($teal, 0.08);
+    padding: 4px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-family: $font-display;
+    font-size: clamp(26px, 3.8vw, 36px);
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.015em;
+    margin-bottom: 14px;
+  }
+
+  p {
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: rgba($cream, 0.6);
+  }
+}
+
+// INTERACTIVE GRID MATRIX
+.matrixContainer {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 48px;
+  align-items: start;
+  background: rgba(#ffffff, 0.015);
+  border: 1px solid rgba($line, 0.12);
+  border-radius: 8px;
+  padding: 32px;
+
+  @media (max-width: 860px) {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 20px;
+  }
+}
+
+// LEFT NAVIGATION COLUMN
+.selectorColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-right: 1px solid rgba($line, 0.1);
+  padding-right: 16px;
+
+  @media (max-width: 860px) {
+    border-right: none;
+    border-bottom: 1px solid rgba($line, 0.1);
+    padding-right: 0;
+    padding-bottom: 16px;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 12px;
+    scrollbar-width: none; // Hide track on Firefox
+    &::-webkit-scrollbar { display: none; } // Hide track on Chrome
+  }
+}
+
+.tabTrigger {
+  background: none;
+  border: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 6px;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.2s ease, color 0.2s ease;
+  color: rgba($cream, 0.45);
+
+  &:hover {
+    background: rgba(#ffffff, 0.03);
+    color: rgba($cream, 0.85);
+  }
+
+  @media (max-width: 860px) {
+    flex-shrink: 0;
+    width: auto;
+    padding: 10px 14px;
+  }
+}
+
+.activeTab {
+  background: rgba($teal, 0.06);
+  color: #ffffff !important;
+  font-weight: 500;
+
+  .stepIndicator {
+    color: $teal;
+    background: rgba($teal, 0.12);
+    border-color: rgba($teal, 0.3);
+  }
+
+  .activeLinePointer {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+.stepIndicator {
+  font-family: $font-mono;
+  font-size: 11px;
+  font-weight: 600;
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba($line, 0.2);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  color: rgba($cream, 0.5);
+  background: rgba(#ffffff, 0.01);
+}
+
+.stepTitleMeta {
+  font-family: $font-display;
+  font-size: 14.5px;
+}
+
+// Active Side Highlight Line
+.activeLinePointer {
+  position: absolute;
+  right: -17px;
+  top: 15%;
+  height: 70%;
+  width: 2px;
+  background-color: $teal;
+  opacity: 0;
+  transform: scaleY(0.3);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+
+  @media (max-width: 860px) {
+    bottom: -17px;
+    top: auto;
+    left: 15%;
+    width: 70%;
+    height: 2px;
+    transform: scaleX(0.3);
+  }
+}
+
+// RIGHT DETAILS PANEL CONTENT
+.detailDisplayBox {
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contentCardAnimation {
+  h3 {
+    font-family: $font-display;
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+}
+
+.phaseBadge {
+  font-family: $font-mono;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: rgba($cream, 0.4);
+  letter-spacing: 0.04em;
+  display: inline-block;
+  margin-bottom: 14px;
+}
+
+.descriptionText {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: rgba($cream, 0.7);
+  max-width: 680px;
+}
+
+.divider {
+  height: 1px;
+  background: rgba($line, 0.12);
+  width: 100%;
+  margin: 24px 0;
+}
+
+.detailDisplayBox h4 {
+  font-family: $font-mono;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: $teal;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+
+// Deliverables Bullet Matrix
+.deliverableList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 24px;
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+.deliverableItem {
+  font-size: 13.5px;
+  color: rgba($cream, 0.65);
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.4;
+
+  &::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: $teal;
+    font-weight: 500;
+  }
+}

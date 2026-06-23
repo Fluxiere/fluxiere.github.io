@@ -1,6 +1,6 @@
 import { Insights } from '../../components/Insights/Insights';
 
-const Gallery = () => {
+const InsightsPage = () => {
   return (
     <main style={{ marginTop: '68px' }}>
       <Insights />
@@ -8,4 +8,4 @@ const Gallery = () => {
   );
 };
 
-export default Gallery;
+export default InsightsPage;
