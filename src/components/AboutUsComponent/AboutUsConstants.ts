@@ -32,7 +32,7 @@ export const historyTimeline: HistoryMilestone[] = [
 
 export const teamRoster: TeamMember[] = [
   {
-    name: 'Vasanth',
+    name: 'Vasanth Kumar AM',
     role: 'Founder, Systems Architect & Wizard',
     bio: 'Specializes in mapping complex workflow choke points into streamlined, high-velocity automation pipelines.',
     imgSrc: '/assets/team/vasan.jpg' // Path to Vasan's individual photo
