@@ -49,6 +49,12 @@
     line-height: 1.25;
     margin-bottom: 40px;
     font-weight: 600;
+
+    em {
+    font-style: normal;
+    color: $teal;
+    position: relative;
+   }
   }
 }
 
@@ -202,4 +208,6 @@
       font-weight: bold;
     }
   }
+
+  
 }

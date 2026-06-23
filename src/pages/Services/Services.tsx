@@ -3,8 +3,8 @@ import { ApproachComponent } from '../../components/ApproachComponent/ApproachCo
 const Services = () => {
   return (
     <main style={{ marginTop: '68px' }}>
-      <ApproachComponent />
       <DetailedServices />
+      <ApproachComponent />
     </main>
   );
 };

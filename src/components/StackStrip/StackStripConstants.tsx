@@ -1,11 +1,10 @@
 export const stackStripCopy = {
   industries: [
-    'SME Retail',
-    'Logistics & Distribution',
-    'Healthcare Clinics',
-    'Professional Services',
-    'Manufacturing',
-    'Education',
-    'Real Estate',
+    'Vasanth_Kumar_AM',
+    'Prasanna_Venkatesh_JS',
+    'Sarvesh_R',
+    'Vasanth_Kumar_AM',
+    'Prasanna_Venkatesh_JS',
+    'Sarvesh_R',
   ],
 };

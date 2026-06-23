@@ -12,7 +12,7 @@ export const DetailedServices = () => {
         {/* Left Sticky Panel: Perfect for quick skim navigation */}
         <div className={styles.stickyLeft}>
           <span className={styles.eyebrow}>Our Deep Engagement Model</span>
-          <h2 className={styles.mainTitle}>How we take you from manual chaos to automated scale.</h2>
+          <h2 className={styles.mainTitle}>How we take you from manual chaos to <em>automated scale</em>.</h2>
           
           <nav className={styles.stepNav}>
             {ServiceDetailList.map((item, idx) => (
@@ -41,7 +41,7 @@ export const DetailedServices = () => {
               onMouseEnter={() => setActiveStep(idx)}
             >
               <div className={styles.cardHeader}>
-                <span className={styles.phaseBadge}>{item.phase} // {item.badge}</span>
+                <span className={styles.phaseBadge}>{item.phase} ❯ {item.badge}</span>
                 <h3>{item.title}</h3>
               </div>
               
@@ -52,7 +52,7 @@ export const DetailedServices = () => {
                 <ul>
                   {item.deliverables.map((delivery, dIdx) => (
                     <li key={dIdx}>
-                      <span className={styles.checkIcon}>✓</span> {delivery}
+                      <span className={styles.checkIcon}>»</span> {delivery}
                     </li>
                   ))}
                 </ul>

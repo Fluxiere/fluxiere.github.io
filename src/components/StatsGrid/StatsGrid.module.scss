@@ -7,7 +7,6 @@
   margin-top: 72px;
   border-top: 1px solid $line;
   padding-top: 28px;
-  max-width: 880px;
 
   @media (max-width: 720px) {
     grid-template-columns: repeat(2, 1fr);

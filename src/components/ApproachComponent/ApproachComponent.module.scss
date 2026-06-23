@@ -240,10 +240,10 @@
   line-height: 1.4;
 
   &::before {
-    content: '—';
+    content: '»';
     position: absolute;
     left: 0;
     color: $teal;
     font-weight: 500;
   }
-}
+} 

@@ -11,8 +11,8 @@ export const StatsGridCopy = [
     value: '97%',
     label: 'Client retention',
   },
-//   {
-//     value: '2 wks',
-//     label: 'Avg. time to first build',
-//   },
+  {
+    value: '100%',
+    label: 'Custom source code ownership retained',
+  },
 ];
