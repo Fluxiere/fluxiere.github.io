@@ -16,7 +16,8 @@ export const Header = () => {
         <nav className={`${styles.links} ${isMenuOpen ? styles.mobileOpen : ''}`}>
           <Link to="/home" onClick={() => setIsMenuOpen(false)}>Home</Link>
           <Link to="/services" onClick={() => setIsMenuOpen(false)}>Services</Link>
-          <Link to="/approach" onClick={() => setIsMenuOpen(false)}>Approach</Link>
+          <Link to="/about" onClick={() => setIsMenuOpen(false)}>About</Link>
+          {/* <Link to="/approach" onClick={() => setIsMenuOpen(false)}>Approach</Link> */}
           <Link to="/insights" onClick={() => setIsMenuOpen(false)}>Insights</Link>
           {/* <Link to="/gallery" onClick={() => setIsMenuOpen(false)}>Gallery</Link> */}
           <Link to="/contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
