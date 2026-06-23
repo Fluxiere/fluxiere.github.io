@@ -1,9 +1,9 @@
 import styles from './Services.module.scss';
-import { servicesData, servicesHeading, servicesDescription } from './ServicesConstants.tsx';
+import { servicesData, servicesHeading, servicesDescription, EXPLORE_SERVICE_CTA } from './ServicesConstants.tsx';
 
 export const Services = () => {
   return (
-    <section className="sec" id="services">
+    <section className="sec" id="services Component">
       <div className="wrap">
         <div className="sec-head">
           <span className="sec-eyebrow">{servicesHeading.eyebrow}</span>
@@ -33,7 +33,7 @@ export const Services = () => {
               </ul>
 
               <a href="#contact" className={styles.go}>
-                Explore service <span className={styles.arrow}>→</span>
+                {EXPLORE_SERVICE_CTA} <span className={styles.arrow}>→</span>
               </a>
               
             </div>

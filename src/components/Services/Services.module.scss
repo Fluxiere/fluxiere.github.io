@@ -1,5 +1,7 @@
+//Css for the Services component 
 @use '../../styles/variables' as *;
 
+// Services Grid Layout - Creates a responsive 3-column grid with 1px gaps between cards
 .servicesGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -8,19 +10,23 @@
   border: 1px solid $line;
 
   @media (max-width: 920px) {
+    // Medium screens: 2-column layout
     grid-template-columns: repeat(2, 1fr);
   }
   @media (max-width: 620px) {
+    // Small screens: Single column layout
     grid-template-columns: 1fr;
   }
 }
 
+// Individual service card styling
 .svc {
   background: $cream;
   padding: 36px 30px;
   position: relative;
   transition: background 0.25s ease;
 
+  // Card background becomes white on hover
   &:hover {
     background: #ffffff;
   }
@@ -39,6 +45,7 @@
     border-radius: 10px;
   }
 
+  // Service number/index display
   .num {
     font-family: $font-mono;
     font-size: 24px;
@@ -47,6 +54,7 @@
     display: block;
   }
 
+  // Service title heading
   h3 {
     font-family: $font-display;
     font-weight: 600;
@@ -56,6 +64,7 @@
     color: $ink;
   }
 
+  // Service description paragraph
   .desc {
     font-size: 14.5px;
     color: rgba($ink, 0.6);
@@ -63,6 +72,7 @@
     margin-bottom: 18px;
   }
 
+  // Feature list with custom bullet styling
   ul {
     list-style: none;
     margin-bottom: 20px;
@@ -74,6 +84,7 @@
       position: relative;
       margin-bottom: 7px;
 
+      // Custom dash bullet point
       &::before {
         content: '—';
         position: absolute;
@@ -83,6 +94,7 @@
     }
   }
 
+  // "Explore Service" call-to-action link with animated underline
   .go {
     font-size: 13.5px;
     font-weight: 600;
@@ -90,15 +102,43 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
+    position: relative;
 
+    // Creates an animated underline that grows from left to right on hover
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: $teal-dark;
+      transition: width 0.3s ease;
+    }
+
+    // Arrow animation
     .arrow {
       transition: transform 0.2s ease;
     }
+
+    // Hover state: underline animates and arrow moves right
+    &:hover {
+      &::after {
+        width: 83%;
+      }
+
+      .arrow {
+        transform: translateX(4px);
+      }
+    }
   }
 
+  // Card-level hover (bonus arrow animation even without hovering the link directly)
   &:hover {
-    .go .arrow {
-      transform: translateX(4px);
+    .go {
+      .arrow {
+        transform: translateX(4px);
+      }
     }
   }
 }

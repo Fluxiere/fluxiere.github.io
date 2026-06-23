@@ -2,13 +2,11 @@ import { useEffect, useRef } from 'react';
 import styles from './CustomCursor.module.scss';
 
 export const CustomCursor = () => {
-  const dotRef = useRef<HTMLDivElement | null>(null);
   const outlineRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const dot = dotRef.current;
     const outline = outlineRef.current;
-    if (!dot || !outline) return;
+    if (!outline) return;
 
     // Track positioning targets
     let mouseX = 0;
@@ -19,9 +17,6 @@ export const CustomCursor = () => {
     const handleMouseMove = (e: MouseEvent) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
-
-      // Immediately snap the inner tiny point tracker
-      dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
     };
 
     const animateOutline = () => {
@@ -48,16 +43,12 @@ export const CustomCursor = () => {
       });
     };
 
-    // NEW: Handle user leaving the page viewport (e.g. going to Inspect Element)
+    // Handle user leaving the page viewport
     const handleMouseLeaveWindow = () => {
-      document.documentElement.classList.add('devtools-active');
-      dot.style.opacity = '0';
       outline.style.opacity = '0';
     };
 
     const handleMouseEnterWindow = () => {
-      document.documentElement.classList.remove('devtools-active');
-      dot.style.opacity = '1';
       outline.style.opacity = '1';
     };
 
@@ -65,11 +56,9 @@ export const CustomCursor = () => {
     window.addEventListener('mousedown', handleMouseDown);
     window.addEventListener('mouseup', handleMouseUp);
     
-    // Attach window border checks
     document.addEventListener('mouseleave', handleMouseLeaveWindow);
     document.addEventListener('mouseenter', handleMouseEnterWindow);
     
-    // Initial run for layout tracking
     const animationId = requestAnimationFrame(animateOutline);
     setupInteractiveListeners();
 
@@ -89,9 +78,6 @@ export const CustomCursor = () => {
   }, []);
 
   return (
-    <>
-      <div ref={dotRef} className={styles.cursorDot} />
-      <div ref={outlineRef} className={styles.cursorOutline} />
-    </>
+    <div ref={outlineRef} className={styles.cursorOutline} />
   );
 };

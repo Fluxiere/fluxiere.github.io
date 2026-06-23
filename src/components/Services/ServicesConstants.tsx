@@ -4,6 +4,7 @@ export const servicesHeading = {
   eyebrow: 'Our Expertise',
   title: 'One partner for AI automation and the software it runs on',
 };
+export const  EXPLORE_SERVICE_CTA = 'Explore service';
 
 export const servicesDescription =
   'From a single automated workflow to a full custom platform — we scope, build, and support every layer your business needs to operate without manual drag.';

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Contact.module.scss';
+import { contactHeading, contactDescription, contactChannels, formFields, formSubmitButton } from './ContactConstants';
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -27,22 +28,19 @@ export const Contact = () => {
         <div className={styles.contactGrid}>
           {/* Left Column: Direct Links */}
           <div>
-            <span className="sec-eyebrow">Get in Touch</span>
-            <h2 className={styles.headline}>Let’s discuss what we can automate for your team</h2>
+            <span className="sec-eyebrow">{contactHeading.eyebrow}</span>
+            <h2 className={styles.headline}>{contactHeading.title}</h2>
             <p className={styles.subtext}>
-              Book an audit call or shoot over a quick description of the bottleneck you're running into. 
-              We'll respond within 24 business hours with a clear, direct answer on whether we can help.
+              {contactDescription}
             </p>
             
             <div className={styles.channels}>
-              <div className={styles.channel}>
-                <div className={styles.chTitle}>Direct Email</div>
-                <a href="mailto:hello@fluxiere.com">hello@fluxiere.com</a>
-              </div>
-              <div className={styles.channel}>
-                <div className={styles.chTitle}>Calendar Link</div>
-                <a href="#">book a 30-min call</a>
-              </div>
+              {contactChannels.map((channel, index) => (
+                <div key={index} className={styles.channel}>
+                  <div className={styles.chTitle}>{channel.title}</div>
+                  <a href={channel.href}>{channel.label}</a>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -50,58 +48,58 @@ export const Contact = () => {
           <div className={styles.formWrapper}>
             <form onSubmit={handleSubmit} className={styles.form}>
               <div className={styles.field}>
-                <label htmlFor="name">Your Name</label>
+                <label htmlFor="name">{formFields.name.label}</label>
                 <input 
                   type="text" 
                   id="name"
                   name="name" 
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="e.g. Vasan" 
+                  placeholder={formFields.name.placeholder} 
                   required 
                 />
               </div>
 
               <div className={styles.field}>
-                <label htmlFor="email">Work Email</label>
+                <label htmlFor="email">{formFields.email.label}</label>
                 <input 
                   type="email" 
                   id="email"
                   name="email" 
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="you@company.com" 
+                  placeholder={formFields.email.placeholder} 
                   required 
                 />
               </div>
 
               <div className={styles.field}>
-                <label htmlFor="company">Company Name</label>
+                <label htmlFor="company">{formFields.company.label}</label>
                 <input 
                   type="text" 
                   id="company"
                   name="company" 
                   value={formData.company}
                   onChange={handleChange}
-                  placeholder="Your Company Ltd" 
+                  placeholder={formFields.company.placeholder} 
                 />
               </div>
 
               <div className={styles.field}>
-                <label htmlFor="message">What process or workflow needs fixing?</label>
+                <label htmlFor="message">{formFields.message.label}</label>
                 <textarea 
                   id="message"
                   name="message" 
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Describe the steps, software involved, or time spent..." 
+                  placeholder={formFields.message.placeholder} 
                   required
                 ></textarea>
               </div>
 
               <button type="submit" className={styles.submitBtn}>
-                Send message →
+                {formSubmitButton}
               </button>
             </form>
           </div>
