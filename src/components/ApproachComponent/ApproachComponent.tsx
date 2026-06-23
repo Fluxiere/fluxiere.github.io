@@ -1,47 +1,9 @@
 import React, { useState } from 'react';
 import styles from './ApproachComponent.module.scss';
-
-export interface ProcessStep {
-  idx: string;
-  shortNum: string;
-  title: string;
-  desc: string;
-  deliverables: string[];
-}
+import { approachSectionText, stepsData } from './ApproachComponentConstants';
 
 export const ApproachComponent: React.FC = () => {
   const [activeStep, setActiveStep] = useState<number>(0);
-
-  const stepsData: ProcessStep[] = [
-    {
-      idx: '01 / Audit',
-      shortNum: '01',
-      title: 'Map the workflow',
-      desc: 'We shadow your operations as they run today to locate exactly where time, manual errors, and accuracy are leaking out of your pipeline.',
-      deliverables: ['Data friction mapping', 'Operational velocity baseline', 'Automation opportunity log']
-    },
-    {
-      idx: '02 / Design',
-      shortNum: '02',
-      title: 'Design the system',
-      desc: 'A scoped structural plan defining the exact logic, database schemas, third-party APIs, and human-in-the-loop checkpoints before any code is deployed.',
-      deliverables: ['Pipeline logic blueprints', 'Data schema configurations', 'Milestone delivery timeline']
-    },
-    {
-      idx: '03 / Build',
-      shortNum: '03',
-      title: 'Build & integrate',
-      desc: 'We engineer against your real-world data sandboxes, staging modular features with operational demos at every single milestone build.',
-      deliverables: ['Custom environment builds', 'API integrations', 'Fidelity telemetry validation']
-    },
-    {
-      idx: '04 / Run',
-      shortNum: '04',
-      title: 'Launch & support',
-      desc: "Your automated systems launch seamlessly with zero active production downtime. We continuously tune prompts, monitor errors, and optimize code logs.",
-      deliverables: ['Production sync execution', 'Continuous prompt calibrations', 'Infrastructure log support']
-    }
-  ];
 
   return (
     <section className={styles.processSection} id="process">
@@ -49,9 +11,9 @@ export const ApproachComponent: React.FC = () => {
         
         {/* SECTION HEAD */}
         <div className={styles.sectionHead}>
-          <span className={styles.eyebrow}>How We Work</span>
-          <h2>Four stages, one accountable build</h2>
-          <p>Every engagement follows a structured framework so you always track delivery benchmarks cleanly.</p>
+          <span className={styles.eyebrow}>{approachSectionText.eyebrow}</span>
+          <h2>{approachSectionText.title}</h2>
+          <p>{approachSectionText.description}</p>
         </div>
 
         {/* COMPACT MATRIX BLOCK */}
@@ -87,7 +49,7 @@ export const ApproachComponent: React.FC = () => {
               
               <div className={styles.divider} />
               
-              <h4>Phase Benchmarks & Objectives</h4>
+              <h4>{approachSectionText.benchmarkHeading}</h4>
               <ul className={styles.deliverableList}>
                 {stepsData[activeStep].deliverables.map((item, index) => (
                   <li key={index} className={styles.deliverableItem}>
