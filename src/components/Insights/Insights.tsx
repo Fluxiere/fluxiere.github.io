@@ -1,52 +1,100 @@
-import { type ArticleItem } from './types';
+import React from 'react';
+import { useParams } from 'react-router-dom'; // Hook for pulling route parameters safely
+import { sampleBlogs } from '../BlogComponent/BlogConstants';
 import styles from './Insights.module.scss';
+import {
+  SECTION_ID,
+  EYEBROW,
+  TITLE,
+  DESCRIPTION,
+  READ_ARTICLE,
+  BULLET_DIVIDER,
+} from './InsightsConstants';
 
-export const Insights = () => {
-  const articles: ArticleItem[] = [
-    {
-      tag: "Automation Strategy",
-      title: "How to audit your business workflows for AI opportunities before writing any code",
-      readTime: "6 min read",
-      link: "#"
-    },
-    {
-      tag: "Case Studies",
-      title: "Replacing manual CRM entry cycles: A deep-dive into cross-platform system syncing",
-      readTime: "8 min read",
-      link: "#"
-    },
-    {
-      tag: "Engineering Notes",
-      title: "Why local LLM setups fail for complex logic pipelines, and when to use hybrid routing setups",
-      readTime: "11 min read",
-      link: "#"
-    }
-  ];
+export const Insights: React.FC = () => {
+  // Grab the :slug value directly from React Router
+  const { slug } = useParams<{ slug?: string }>();
+
+  // Look up if a valid article matching that URL slug exists
+  const activeArticle = sampleBlogs.find(blog => blog.slug === slug);
 
   return (
-    <section className="sec" id="insights Component">
+    <section className="sec" id={SECTION_ID}>
       <div className="wrap">
-        <div className="sec-head">
-          <span className="sec-eyebrow">Our Notebook</span>
-          <h2>Practical ideas on automation and software execution</h2>
-          <p>No high-level fluff or tech buzzwords. Just transparent breakdowns of how we build and maintain working loops for our clients.</p>
-        </div>
+        
+        {/* IF NO VALID ARTICLE SLUG IS DETECTED IN THE URL, RENDER THE NOTEBOOK GRID */}
+        {!activeArticle ? (
+          <>
+            <div className="sec-head">
+              <span className="sec-eyebrow">{EYEBROW}</span>
+              <h2>{TITLE}</h2>
+              <p>{DESCRIPTION}</p>
+            </div>
 
-        <div className={styles.insightsGrid}>
-          {articles.map((art, index) => (
-            <a key={index} href={art.link} className={styles.artCard}>
-              <div className={styles.topMeta}>
-                <span className={styles.tag}>{art.tag}</span>
-                <span className={styles.readTime}>{art.readTime}</span>
+            <div className={styles.insightsGrid}>
+              {sampleBlogs.map((art) => (
+                <a 
+                  key={art.slug} 
+                  href={`/insights/${art.slug}`} // Matches the router path precisely
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className={styles.artCard}
+                >
+                  <div className={styles.topMeta}>
+                    <span className={styles.tag}>{art.category}</span>
+                    <span className={styles.readTime}>{art.readingTime}</span>
+                  </div>
+                  <h3>{art.title}</h3>
+                  <p className={styles.excerptText}>{art.excerpt}</p>
+                  <div className={styles.actionRow}>
+                    <span>{READ_ARTICLE}</span>
+                    <span className={styles.arrow}>→</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </>
+        ) : (
+          /* DEEP REUSABLE ARTICLE TAB CANVAS */
+          <article className={styles.reusableBlogCanvas}>
+            <header className={styles.blogHeader}>
+              <span className={styles.blogBadge}>{activeArticle.category}</span>
+              <h1>{activeArticle.title}</h1>
+              <div className={styles.blogMetaTrail}>
+                <span>{activeArticle.date}</span>
+                <span className={styles.bulletDivider}>{BULLET_DIVIDER}</span>
+                <span>{activeArticle.readingTime}</span>
               </div>
-              <h3>{art.title}</h3>
-              <div className={styles.actionRow}>
-                <span>Read article</span>
-                <span className={styles.arrow}>→</span>
+            </header>
+
+            {activeArticle.featuredImage && (
+              <div className={styles.blogImageWrapper}>
+                <img 
+                  src={activeArticle.featuredImage} 
+                  alt={activeArticle.title} 
+                  className={styles.blogPhoto}
+                />
               </div>
-            </a>
-          ))}
-        </div>
+            )}
+
+            <div className={styles.blogArticleBody}>
+              {activeArticle.contentBlocks.map((block, idx) => {
+                if (block.type === 'subheading') {
+                  return <h3 key={idx} className={styles.bodySubhead}>{block.value}</h3>;
+                }
+                if (block.type === 'code') {
+                  return (
+                    <pre key={idx} className={styles.bodyCodeBlock}>
+                      <code>{block.value}</code>
+                    </pre>
+                  );
+                }
+                return <p key={idx} className={styles.bodyParagraph}>{block.value}</p>;
+              })}
+            </div>
+          </article>
+        )}
+
       </div>
     </section>
   );

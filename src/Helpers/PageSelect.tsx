@@ -16,7 +16,13 @@ function PageSelect() {
       <Route path="/services" element={<Services />} />
       <Route path="/contact" element={<Contact />} />
       {/* <Route path="/gallery" element={<Gallery />} />         */}
+      
+      {/* Base directory grid index */}
       <Route path="/insights" element={<InsightsPage />} />        
+      
+      {/* Dynamic sub-route path for your independent article entries */}
+      <Route path="/insights/:slug" element={<InsightsPage />} />
+
       {/* Fallback configuration: redirect unknown paths back to Home */}
       <Route path="*" element={<Navigate to="/home" replace />} />
     </Routes>
