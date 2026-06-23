@@ -1,10 +1,10 @@
-import { Approach } from "../../components/ApproachComponent/ApproachComponent";
+import { ApproachComponent } from "../../components/ApproachComponent/ApproachComponent";
 
 
 const ApproachPage = () => {
   return (
     <main style={{ marginTop: '68px' }}>
-      <Approach />
+      <ApproachComponent />
     </main>
   );
 };

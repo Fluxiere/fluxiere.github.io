@@ -9,7 +9,7 @@ export interface ProcessStep {
   deliverables: string[];
 }
 
-export const Approach: React.FC = () => {
+export const ApproachComponent: React.FC = () => {
   const [activeStep, setActiveStep] = useState<number>(0);
 
   const stepsData: ProcessStep[] = [
