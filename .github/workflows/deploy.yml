@@ -3,7 +3,7 @@ name: Deploy Fluxière Platform to GitHub Pages
 on:
   push:
     branches:
-      - main # Triggers the pipeline every time you push to the main branch
+      - '*' # Triggers the pipeline every time you push to the main branch
 
 permissions:
   contents: write
