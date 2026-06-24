@@ -11,6 +11,7 @@ export const contactChannels = [
   {
     title: 'Direct Email',
     label: 'buildwithfluxiere@gmail.com',
+    labelEncripted: '01c30d1c1d5799358b2ba624d7cf3c43',
     href: 'mailto:buildwithfluxiere@gmail.com'
   },
   {

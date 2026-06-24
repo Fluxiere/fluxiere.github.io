@@ -15,11 +15,9 @@ export const Contact = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Ready for integration with n8n, Zapier, or email endpoint
-    console.log('Form submission data:', formData);
-    alert('Thank you! Your message has been logged.');
+  // Note: We remove e.preventDefault() so the browser natively posts to FormSubmit
+  const handleSubmit = () => {
+    console.log('Redirecting to FormSubmit...');
   };
 
   return (
@@ -46,7 +44,19 @@ export const Contact = () => {
 
           {/* Right Column: Submission Form */}
           <div className={styles.formWrapper}>
-            <form onSubmit={handleSubmit} className={styles.form}>
+            {/* 1. Added Action and Method pointing to your email channel */}
+            <form 
+              action={`https://formsubmit.co/${contactChannels[0].labelEncripted}`} 
+              method="POST"
+              onSubmit={handleSubmit} 
+              className={styles.form}
+            >
+              {/* Optional FormSubmit Configurations */}
+              <input type="hidden" name="_subject" value="New Automation Inquiry!" />
+              <input type="hidden" name="_replyto" value={formData.email} />
+              {/* Uncomment the line below if you want to bypass the reCAPTCHA screen */}
+              {/* <input type="hidden" name="_captcha" value="false" /> */}
+
               <div className={styles.field}>
                 <label htmlFor="name">{formFields.name.label}</label>
                 <input 
