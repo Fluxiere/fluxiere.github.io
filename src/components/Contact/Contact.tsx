@@ -47,7 +47,7 @@ export const Contact = () => {
           email: formData.email,
           company: formData.company,
           message: formData.message,
-          // CHANGE THIS LINE: Make the subject unique using the user's name
+          // Make the subject unique using the user's name
           _subject: `New Inquiry from ${formData.name || 'Anonymous'}`,
           _captcha: 'false' // Disables the reCAPTCHA verification step
         })
