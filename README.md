@@ -1,73 +1,32 @@
-# React + TypeScript + Vite
+# Fluxière — Business Automation & Software Architecture Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A high-performance, single-page web platform engineered for **Fluxière**, an automation and systems integration agency. The codebase leverages a light editorial aesthetic, explicit typography grids, and a parameter-driven client routing engine built to deploy smoothly via static environments.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🛠️ Tech Stack & Architecture
 
-## React Compiler
+* **Core Framework:** React 18 (TypeScript)
+* **Routing System:** `react-router-dom` (Optimized for deep sub-routing configurations)
+* **Styling Engine:** Sass (SCSS Modules) using a structured variables architecture (`$cream`, `$ink`, `$line`, `$teal-dark`)
+* **Compilation Build Tool:** Vite
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 💎 Core Platform Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* **Dynamic Workflows Component:** An interactive, clean visualization of internal process mapping strategy layers.
+* **Decoupled Roster Matrix:** Modular layout structure handling individual team profile images independently.
+* **Parameter-Driven Insight Engine:** Reusable article infrastructure that extracts route tokens via custom hooks (`useParams`) to render comprehensive code logs and text briefs natively within the layout template.
+* **Multi-Tab Support:** Configured link arrays running target safety filters (`target="_blank"` and `rel="noopener noreferrer"`) for smooth multi-window exploration.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🚀 Local Implementation Guide
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### 1. Project Initialization
+Clone the repository path and isolate dependencies within your local runtime package matrix:
+```bash
+git clone [https://github.com/fluxiere/fluxiere.github.io.git](https://github.com/fluxiere/fluxiere.github.io.git)
+cd fluxiere.github.io
+npm install
