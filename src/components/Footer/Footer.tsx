@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styles from './Footer.module.scss';
+import { initSiteShooter } from '../ProceduralAnimations/SiteShooter/SiteShooter';
 import {
   footerBrand,
   footerCompanyLinks,
@@ -67,6 +68,15 @@ export const Footer = () => {
               </a>
             ))}
           </span>
+            <a 
+              href="#shooter" 
+              onClick={(e) => {
+                e.preventDefault();
+                initSiteShooter();
+              }}
+            >
+              🕹️ Protect the Site
+            </a>
         </div>
       </div>
     </footer>
