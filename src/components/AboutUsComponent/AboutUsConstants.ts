@@ -35,12 +35,24 @@ export const teamRoster: TeamMember[] = [
     name: 'Vasanth Kumar AM',
     role: 'Founder, Systems Architect & Wizard',
     bio: 'Specializes in mapping complex workflow choke points into streamlined, high-velocity automation pipelines.',
-    imgSrc: '/assets/team/vasan.jpg' // Path to Vasan's individual photo
+    imgSrc: '/assets/team/Vasanth.jpg' // Path to Vasan's individual photo
   },
   {
-    name: 'Join the Mix',
-    role: 'Core Engineering',
-    bio: 'Looking for builders obsessed with optimization, edge cases, and deterministic execution structures.',
-    imgSrc: '/assets/team/placeholder-join.jpg' // Path to an invite/placeholder graphic or asset
-  }
+    name: 'Vasanth Kumar AM',
+    role: 'Founder, Systems Architect & Wizard',
+    bio: 'Specializes in mapping complex workflow choke points into streamlined, high-velocity automation pipelines.',
+    imgSrc: '/assets/team/Vasanth.jpg' // Path to Vasan's individual photo
+  },
+  {
+    name: 'Vasanth Kumar AM',
+    role: 'Founder, Systems Architect & Wizard',
+    bio: 'Specializes in mapping complex workflow choke points into streamlined, high-velocity automation pipelines.',
+    imgSrc: '/assets/team/Vasanth.jpg' // Path to Vasan's individual photo
+  },
+  // {
+  //   name: 'Join the Mix',
+  //   role: 'Core Engineering',
+  //   bio: 'Looking for builders obsessed with optimization, edge cases, and deterministic execution structures.',
+  //   imgSrc: '/assets/team/placeholder-join.jpg' // Path to an invite/placeholder graphic or asset
+  // }
 ];
