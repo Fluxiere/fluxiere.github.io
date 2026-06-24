@@ -7,6 +7,12 @@ export const Contact = () => {
     name: '',
     email: '',
     company: '',
+    message: '',
+    _honey: '' // State for the honeypot field
+  });
+
+  const [status, setStatus] = useState<{ type: 'idle' | 'loading' | 'success' | 'error'; message: string }>({
+    type: 'idle',
     message: ''
   });
 
@@ -15,9 +21,46 @@ export const Contact = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  // Note: We remove e.preventDefault() so the browser natively posts to FormSubmit
-  const handleSubmit = () => {
-    console.log('Redirecting to FormSubmit...');
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault(); // Prevents the browser from redirecting away
+
+    // Honeypot check: If a bot filled out the hidden field, silently ignore or reject
+    if (formData._honey) {
+      setStatus({ type: 'success', message: 'Thank you! Your message has been logged.' });
+      return;
+    }
+
+    setStatus({ type: 'loading', message: 'Sending message...' });
+
+    try {
+      // FormSubmit AJAX endpoint pattern uses /ajax/ before the email address
+      const endpoint = `https://formsubmit.co/ajax/${contactChannels[0].labelEncripted}`;
+
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          message: formData.message,
+          _subject: 'New Automation Inquiry!',
+          _captcha: 'false' // Disables the reCAPTCHA verification step
+        })
+      });
+
+      if (response.ok) {
+        setStatus({ type: 'success', message: 'Thank you! Your message has been logged.' });
+        setFormData({ name: '', email: '', company: '', message: '', _honey: '' }); // Clear form
+      } else {
+        throw new Error('Network response failed.');
+      }
+    } catch (error) {
+      setStatus({ type: 'error', message: 'Oops! Something went wrong. Please try again.' });
+    }
   };
 
   return (
@@ -28,9 +71,7 @@ export const Contact = () => {
           <div>
             <span className="sec-eyebrow">{contactHeading.eyebrow}</span>
             <h2 className={styles.headline}>{contactHeading.title}</h2>
-            <p className={styles.subtext}>
-              {contactDescription}
-            </p>
+            <p className={styles.subtext}>{contactDescription}</p>
             
             <div className={styles.channels}>
               {contactChannels.map((channel, index) => (
@@ -44,18 +85,16 @@ export const Contact = () => {
 
           {/* Right Column: Submission Form */}
           <div className={styles.formWrapper}>
-            {/* 1. Added Action and Method pointing to your email channel */}
-            <form 
-              action={`https://formsubmit.co/${contactChannels[0].labelEncripted}`} 
-              method="POST"
-              onSubmit={handleSubmit} 
-              className={styles.form}
-            >
-              {/* Optional FormSubmit Configurations */}
-              <input type="hidden" name="_subject" value="New Automation Inquiry!" />
-              <input type="hidden" name="_replyto" value={formData.email} />
-              {/* Uncomment the line below if you want to bypass the reCAPTCHA screen */}
-              {/* <input type="hidden" name="_captcha" value="false" /> */}
+            <form onSubmit={handleSubmit} className={styles.form}>
+              
+              {/* Honeypot Field: Kept completely invisible to human users */}
+              <input 
+                type="text" 
+                name="_honey" 
+                value={formData._honey}
+                onChange={handleChange}
+                style={{ display: 'none' }} 
+              />
 
               <div className={styles.field}>
                 <label htmlFor="name">{formFields.name.label}</label>
@@ -108,9 +147,24 @@ export const Contact = () => {
                 ></textarea>
               </div>
 
-              <button type="submit" className={styles.submitBtn}>
-                {formSubmitButton}
+              <button 
+                type="submit" 
+                className={styles.submitBtn} 
+                disabled={status.type === 'loading'}
+              >
+                {status.type === 'loading' ? 'Sending...' : formSubmitButton}
               </button>
+
+              {/* Status Notice UI */}
+              {status.type !== 'idle' && (
+                <p style={{ 
+                  fontSize: '14px', 
+                  marginTop: '10px', 
+                  color: status.type === 'error' ? '#ff3333' : '#2e7d32' 
+                }}>
+                  {status.message}
+                </p>
+              )}
             </form>
           </div>
         </div>
