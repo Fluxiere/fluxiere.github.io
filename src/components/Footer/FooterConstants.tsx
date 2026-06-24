@@ -2,7 +2,7 @@ export const footerBrand = {
   label: 'Fluxière',
   link: '/home',
   description:
-    'AI automation and custom software for small and mid-sized businesses — built to remove manual work, not add another tool to manage.',
+    'AI automation and custom software for small and mid-sized businesses built to remove manual work, not add another tool to manage.',
 };
 
 export const footerServices = [
@@ -26,6 +26,7 @@ export const footerSupportEmail = 'buildwithfluxiere@gmail.com';
 export const footerLegalLinks = [
   { label: 'Privacy', href: '#' },
   { label: 'Terms', href: '#' },
+  { label: 'Game', href: '#' },
 ];
 
 export const footerCopyright = '© 2026 Fluxière. All rights reserved.';
