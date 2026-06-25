@@ -1,5 +1,13 @@
 import React from 'react';
 import styles from './PreFooterBanner.module.scss';
+import {
+  bannerDescription,
+  bannerTitle,
+  exploreSolutionsLabel,
+  expertAnchor,
+  freeConsultationLabel,
+  contactAnchor,
+} from './PreFooterBannerConstants';
 
 export const PreFooterBanner: React.FC = () => {
   return (
@@ -7,19 +15,17 @@ export const PreFooterBanner: React.FC = () => {
       <div className={styles.bannerContainer}>
         {/* Left Side: Headline & Copy */}
         <div className={styles.textContent}>
-          <h2 className={styles.bannerTitle}>Ready to Transform Your Business with AI?</h2>
-          <p className={styles.bannerDescription}>
-            Discover how AI automation, intelligent workflows, and custom software can streamline operations, reduce costs, and help your business grow without adding complexity.
-          </p>
+          <h2 className={styles.bannerTitle}>{bannerTitle}</h2>
+          <p className={styles.bannerDescription}>{bannerDescription}</p>
         </div>
 
         {/* Right Side: Button Actions */}
         <div className={styles.bannerActions}>
-          <a href="#contact" className={styles.btnWhite}>
-            Book a Free Consultation <span className={styles.arrow}>→</span>
+          <a href={contactAnchor} className={styles.btnWhite}>
+            {freeConsultationLabel} <span className={styles.arrow}>→</span>
           </a>
-          <a href="#expert" className={styles.btnGold}>
-            Explore our solutions
+          <a href={expertAnchor} className={styles.btnGold}>
+            {exploreSolutionsLabel}
           </a>
         </div>
       </div>
