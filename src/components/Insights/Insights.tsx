@@ -11,18 +11,21 @@ import {
   BULLET_DIVIDER,
 } from './InsightsConstants';
 
+// Insights renders either a grid of insight cards or the full article for a matching route slug.
 export const Insights: React.FC = () => {
-  // Grab the :slug value directly from React Router
+  // Grab the :slug value directly from React Router.
+  // This value will determine whether the page shows the grid or a single article.
   const { slug } = useParams<{ slug?: string }>();
 
-  // Look up if a valid article matching that URL slug exists
+  // Find an article whose slug matches the current route parameter.
+  // If none is found, the component renders the insights grid instead.
   const activeArticle = sampleBlogs.find(blog => blog.slug === slug);
 
   return (
     <section className="sec" id={SECTION_ID}>
       <div className="wrap">
         
-        {/* IF NO VALID ARTICLE SLUG IS DETECTED IN THE URL, RENDER THE NOTEBOOK GRID */}
+        {/* If no valid slug is present or it does not match a blog, show the insights card grid. */}
         {!activeArticle ? (
           <>
             <div className="sec-head">
@@ -35,9 +38,11 @@ export const Insights: React.FC = () => {
               {sampleBlogs.map((art) => (
                 <a 
                   key={art.slug} 
-                  href={`/insights/${art.slug}`} // Matches the router path precisely
-                  target="_blank" 
-                  rel="noopener noreferrer"
+                  href={`/insights/${art.slug}`} // Route to the matching article URL.
+                  //These 2 lines ensure that the link opens in a new tab and prevents security vulnerabilities.
+                  // target="_blank" 
+                  // rel="noopener noreferrer"
+
                   className={styles.artCard}
                 >
                   <div className={styles.topMeta}>
@@ -55,7 +60,7 @@ export const Insights: React.FC = () => {
             </div>
           </>
         ) : (
-          /* DEEP REUSABLE ARTICLE TAB CANVAS */
+          /* A matching article slug was found: render the selected article page. */
           <article className={styles.reusableBlogCanvas}>
             <header className={styles.blogHeader}>
               <span className={styles.blogBadge}>{activeArticle.category}</span>
@@ -79,8 +84,14 @@ export const Insights: React.FC = () => {
 
             <div className={styles.blogArticleBody}>
               {activeArticle.contentBlocks.map((block, idx) => {
+                // Render each content block in the selected article.
+                // Use a subheading element for headings, a code block for code, or a paragraph for body text.
                 if (block.type === 'subheading') {
-                  return <h3 key={idx} className={styles.bodySubhead}>{block.value}</h3>;
+                  return (
+                    <h3 key={idx} className={styles.bodySubhead}>
+                      {block.value}
+                    </h3>
+                  );
                 }
                 if (block.type === 'code') {
                   return (
@@ -89,7 +100,11 @@ export const Insights: React.FC = () => {
                     </pre>
                   );
                 }
-                return <p key={idx} className={styles.bodyParagraph}>{block.value}</p>;
+                return (
+                  <p key={idx} className={styles.bodyParagraph}>
+                    {block.value}
+                  </p>
+                );
               })}
             </div>
           </article>
