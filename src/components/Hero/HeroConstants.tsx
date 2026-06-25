@@ -1,10 +1,10 @@
 export const HeroCopy = {
-  eyebrow: 'Fluxière · AI Automation & Custom Software',
-  titleLine1: 'Automate the busywork.',
-  titleLine2Prefix: 'Keep the judgment ',
-  titleEmphasis: 'human',
+  eyebrow: 'Fluxière · AI-Powered Business Transformation',
+  titleLine1: 'Automate the Work.',
+  titleLine2Prefix: 'Amplify the ',
+  titleEmphasis: 'Impact',
   description:
-    'We build AI automation and custom software for small and mid-sized businesses — replacing manual, repetitive work with systems that run themselves, so your team can focus on decisions that need a person.',
+    'Fluxière helps businesses streamline operations, automate repetitive processes and build custom software solutions that improve productivity, reduce costs, and support long-term growth.',
   primaryCtaText: 'Book Free Consultation →',
-  secondaryCtaText: 'See What We Build',
+  secondaryCtaText: 'Explore Solutions',
 };
