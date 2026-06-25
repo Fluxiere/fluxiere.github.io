@@ -1,10 +1,13 @@
 export const stackStripCopy = {
   industries: [
-    'Vasanth_Kumar_AM',
-    'Prasanna_Venkatesh_JS',
-    'Sarvesh_R',
-    'Vasanth_Kumar_AM',
-    'Prasanna_Venkatesh_JS',
-    'Sarvesh_R',
+    'AI Automation',
+    'Workflow Automation',
+    'AI Agents',
+    'Custom Software & ERP Solutions',
+    'CRM Development',
+    'System Integration',
+    'Business Process Automation',
+    'AI Chatbot',
+    'Digital Transformation'
   ],
 };

@@ -1,5 +1,5 @@
 export const flowPanelCopy = {
-  statusLine: "fluxiere · automation-pipeline · live",
+  statusLine: "DELIVERY FRAMEWORK",
   throughput: "1,840 tasks/day",
   errorRate: "0.2%",
   statusMessage: "build passed ✓"
@@ -19,30 +19,30 @@ export const flowSteps: FlowStep[] = [
     id: 'Discovery & Assessment',
     icon: '📋',
     label: 'Discovery & Assessment',
-    subLabel: 'Workflow & cost audit · Automation roadmap · Tech stack evaluation'
+    subLabel: 'Analyze existing workflows, identify automation opportunities, and define measurable business objectives.'
   },
   {
     id: 'Solution Design',
     icon: '⚙️',
     label: 'Solution Design',
-    subLabel: 'Architecture mapping · API & data strategy · ROI-prioritized build plan'
+    subLabel: 'Create a scalable architecture and implementation roadmap aligned with your operational goals.'
   },
   {
     id: 'Development & Implementation',
     icon: '💬',
     label: 'Development & Implementation',
-    subLabel: 'Custom ERP/CRM setups · Bot & assistant training · Cross-platform data sync'
+    subLabel: 'Build, integrate, and configure custom software and AI-powered automation solutions.'
   },
   {
     id: 'Deployment',
     icon: '💻',
     label: 'Deployment & Scaling',
-    subLabel: 'Live environment release · Team onboarding · Production pipeline launch'
+    subLabel: 'Launch solutions seamlessly while ensuring teams are equipped for successful adoption.'
   },
   {
     id: 'Optimization',
     icon: '📊',
     label: 'Optimization & Scaling',
-    subLabel: 'Automated reporting · KPI dashboards · Forecasting & anomaly alerts'
+    subLabel: 'Continuously improve performance, unlock new efficiencies, and support long-term growth.'
   },
 ];

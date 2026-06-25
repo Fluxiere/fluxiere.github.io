@@ -1,51 +1,51 @@
 import { type ServiceItem } from './types';
 
 export const servicesHeading = {
-  eyebrow: 'Our Expertise',
-  title: 'One partner for AI automation and the software it runs on',
+  eyebrow: 'AI AUTOMATION & SOFTWARE SOLUTIONS',
+  title: 'Everything You Need to Automate, Integrate, and Scale',
 };
 export const  EXPLORE_SERVICE_CTA = 'Explore service';
 
 export const servicesDescription =
-  'From a single automated workflow to a full custom platform — we scope, build, and support every layer your business needs to operate without manual drag.';
+  'From AI-powered automation to custom business software, Fluxière designs and delivers solutions that eliminate manual work, connect your systems, and help your organization scale efficiently.';
 
 export const servicesData: ServiceItem[] = [
   {
     num: '🤖',
     tag: 'Most Requested',
     title: 'AI Process Automation',
-    desc: 'We map your repetitive workflows and replace them with AI-driven pipelines that run on their own.',
-    features: ['Document & data extraction', 'Approval & routing workflows', 'Email, WhatsApp & CRM automation']
+    desc: 'Replace repetitive tasks with intelligent workflows that operate automatically across your business.',
+    features: ['Document & data processing', 'Approval workflows', 'Email, WhatsApp & CRM automation']
   },
   {
     num: '💬',
     title: 'AI Chatbots & Assistants',
-    desc: "Conversational systems that handle support, sales, and internal queries in your business's own voice.",
-    features: ['Customer support assistants', 'RAG / knowledge-base search', 'Lead qualification bots']
+    desc: "Deploy AI assistants that support customers, qualify leads, and provide instant answers around the clock.",
+    features: ['Customer support automation', 'Knowledge-base search', 'Lead qualification assistants']
   },
   {
     num: '💻',
     tag: 'Most Requested',
     title: 'Custom Software (ERP/CRM)',
-    desc: 'Tailored internal systems built around how your team actually works — not the other way round.',
-    features: ['Custom ERP & CRM platforms', 'Internal dashboards & tools', 'Inventory & operations systems']
+    desc: 'Build business software designed around your processes, teams, and growth objectives.',
+    features: ['Custom ERP & CRM platforms', 'Internal Business tools', 'Inventory & operations systems']
   },
   {
     num: '📊',
     title: 'Data & Analytics Automation',
-    desc: 'Live dashboards and scheduled reporting that pull from every system you already use.',
-    features: ['Automated reporting pipelines', 'KPI & ops dashboards', 'Forecasting & anomaly alerts']
+    desc: 'Turn business data into actionable insights with automated reporting and real-time dashboards.',
+    features: ['KPI dashboards', 'Automated reporting', 'Forecasting & alerts']
   },
   {
     num: '🔗',
     title: 'Systems Integration',
-    desc: 'We connect the tools you already run — payments, accounting, marketing — into one working loop.',
-    features: ['API & third-party integrations', 'Legacy system modernization', 'Cross-platform data sync']
+    desc: 'Connect your existing tools, applications, and data into one seamless ecosystem.',
+    features: ['API integrations', 'Cross-platform synchronization', 'Legacy system modernization']
   },
   {
     num: '♞',
     title: 'Strategy & Audit',
-    desc: 'A practical audit of where AI and automation will save your business the most time, before we build anything.',
-    features: ['Workflow & cost audit', 'Automation roadmap', 'ROI-prioritized build plan']
+    desc: 'Identify high-impact automation opportunities before investing in technology.',
+    features: ['Workflow assessment', 'Automation roadmap', 'ROI-focused planning']
   }
 ];

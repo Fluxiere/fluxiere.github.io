@@ -2,7 +2,7 @@ export const footerBrand = {
   label: 'Fluxière',
   link: '/home',
   description:
-    'AI automation and custom software for small and mid-sized businesses built to remove manual work, not add another tool to manage.',
+    'Fluxière helps businesses automate repetitive processes, streamline operations, and build custom software solutions that drive efficiency, productivity, and sustainable growth.',
 };
 
 export const footerServices = [
