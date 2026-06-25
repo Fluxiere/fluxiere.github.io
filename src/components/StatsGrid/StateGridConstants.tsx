@@ -13,6 +13,6 @@ export const StatsGridCopy = [
   },
   {
     value: '100%',
-    label: 'Custom source code ownership retained',
+    label: 'Custom source code, Ownership retained',
   },
 ];

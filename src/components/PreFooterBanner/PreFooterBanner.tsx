@@ -9,18 +9,17 @@ export const PreFooterBanner: React.FC = () => {
         <div className={styles.textContent}>
           <h2 className={styles.bannerTitle}>Ready to Transform Your Business with AI?</h2>
           <p className={styles.bannerDescription}>
-            Discover how intelligent automation can reduce costs, improve productivity, 
-            and unlock new growth opportunities.
+            Discover how AI automation, intelligent workflows, and custom software can streamline operations, reduce costs, and help your business grow without adding complexity.
           </p>
         </div>
 
         {/* Right Side: Button Actions */}
         <div className={styles.bannerActions}>
           <a href="#contact" className={styles.btnWhite}>
-            Schedule a Consultation <span className={styles.arrow}>→</span>
+            Book a Free Consultation <span className={styles.arrow}>→</span>
           </a>
           <a href="#expert" className={styles.btnGold}>
-            Talk to an Expert
+            Explore our solutions
           </a>
         </div>
       </div>
