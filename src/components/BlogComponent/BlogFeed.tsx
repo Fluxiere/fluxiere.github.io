@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { blogPageHeading, sampleBlogs, type BlogPost } from './BlogConstants';
 import styles from './BlogFeed.module.scss';
 
+// BlogFeed renders a list of blog cards and switches to a single post detail page when a card is clicked.
 export const BlogFeed: React.FC = () => {
+  // activePost is null while the blog list is shown; it stores the selected post when viewing details.
   const [activePost, setActivePost] = useState<BlogPost | null>(null);
 
-  // Return to full article feed index
+  // Clear the selected post and return to the feed list view.
   const handleBackToFeed = () => {
     setActivePost(null);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -15,7 +17,7 @@ export const BlogFeed: React.FC = () => {
     <section className={styles.blogSection} id="blog-engine">
       <div className="wrap">
         
-        {/* DYNAMIC HEADER */}
+        {/* Header shows a section title on the feed page; when a post is active, it shows a back button instead. */}
         {!activePost ? (
           <div className={styles.sectionHead}>
             <span className={styles.eyebrow}>{blogPageHeading.eyebrow}</span>
@@ -28,7 +30,7 @@ export const BlogFeed: React.FC = () => {
           </button>
         )}
 
-        {/* CONDITIONALLY RENDER: LIST VIEW vs INDIVIDUAL POST VIEW */}
+        {/* Main render branch: blog cards grid when no post is selected, or full post view when one is active. */}
         {!activePost ? (
           <div className={styles.blogGridMatrix}>
             {sampleBlogs.map((post) => (
@@ -64,7 +66,7 @@ export const BlogFeed: React.FC = () => {
             ))}
           </div>
         ) : (
-          /* DEEP BLOG POST VIEW WITH INTEGRATED MEDIA INTERFACES */
+          /* Detailed view for the currently selected blog post. */
           <article className={styles.singlePostView}>
             <header className={styles.postHeader}>
               <span className={styles.activeCategory}>{activePost.category}</span>
@@ -86,10 +88,19 @@ export const BlogFeed: React.FC = () => {
 
             <div className={styles.articleBodyContent}>
               {activePost.contentBlocks.map((block, idx) => {
+                // Render content blocks dynamically: use heading style for subheadings, paragraph style for body text.
                 if (block.type === 'subheading') {
-                  return <h3 key={idx} className={styles.bodySubhead}>{block.value}</h3>;
+                  return (
+                    <h3 key={idx} className={styles.bodySubhead}>
+                      {block.value}
+                    </h3>
+                  );
                 }
-                return <p key={idx} className={styles.bodyParagraph}>{block.value}</p>;
+                return (
+                  <p key={idx} className={styles.bodyParagraph}>
+                    {block.value}
+                  </p>
+                );
               })}
             </div>
           </article>
