@@ -1,4 +1,4 @@
-import { type TestimonialItem } from './types';
+import { type TestimonialItem } from './Helper/types';
 
 export const testimonialsCopy = {
   heading: 'TRUSTED BY GROWING BUSINESSES',
@@ -25,6 +25,13 @@ export const testimonialsCopy = {
       author: 'Dinesh Kumar',
       role: 'Founder',
       company: 'Nagaraj Iron Traders',
+    //   metric: '3.5x faster syncing',
+    },
+    {
+      quote: "“This Comment is for testing purposes need more than 3 carosel slides to view the full working of the component.”",
+      author: 'Vasanth kumar AM',
+      role: 'Founder',
+      company: '🖕',
     //   metric: '3.5x faster syncing',
     },
 
