@@ -1,0 +1,8 @@
+@use '../../../styles/variables' as *;
+
+.dot {
+  display: inline-block;
+  border-radius: 50%;
+  background: $teal;
+  box-shadow: 0 0 0 3px rgba($teal, 0.18);
+}
