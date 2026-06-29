@@ -9,7 +9,7 @@ export const Header = () => {
     <header className={styles.siteHeader}>
       <div className={styles.navContainer}>
         <Link to="/home" className={styles.logo} onClick={() => setIsMenuOpen(false)}>
-          <span className={styles.dot}></span>
+          <img src="/Logo/Fluxiere-NoBg.png" alt="Fluxière logo" className={styles.logoImage} />
           Fluxière
         </Link>
         
