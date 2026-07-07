@@ -32,16 +32,17 @@ export const historyTimeline: HistoryMilestone[] = [
 
 export const teamRoster: TeamMember[] = [
   {
-    name: 'Vasanth Kumar AM',
-    role: 'Founder, Systems Architect & Wizard',
-    bio: 'Specializes in mapping complex workflow choke points into streamlined, high-velocity automation pipelines.',
-    imgSrc: '/assets/team/Vasanth.jpg' // Path to Vasan's individual photo
+    name: 'PRASANNA VENKATESH 𓂀',
+    role: '✨ 𝕊𝕠𝕚𝕤 𝕦𝕟𝕖 𝕧𝕠𝕚𝕩, 𝕡𝕒𝕤 𝕦𝕟 é𝕔𝕙𝕠 ✨',
+    bio: 'ᴍʏ ɪɴᴠᴏᴄᴀᴛɪᴏɴ ꜱᴜᴍᴍᴏɴ ᴀɴ ᴏᴄᴄᴜʟᴛ & ᴀʀᴄᴀɴᴇ 🪄🔮',
+    imgSrc: '/assets/team/PV.jpeg' 
+    
   },
   {
     name: 'Vasanth Kumar AM',
     role: 'Founder, Systems Architect & Wizard',
     bio: 'Specializes in mapping complex workflow choke points into streamlined, high-velocity automation pipelines.',
-    imgSrc: '/assets/team/Vasanth.jpg' // Path to Vasan's individual photo
+    imgSrc: '/assets/team/Vasanth.png' // Path to Vasan's individual photo
   },
   {
     name: 'Vasanth Kumar AM',
