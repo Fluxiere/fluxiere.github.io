@@ -102,6 +102,10 @@
     transform: translateY(-1px);
   }
   
+  @media (max-width: 880px) {
+    display: none;
+  }
+
   @media (max-width: 520px) {
     padding: 8px 14px;
     font-size: 13px;

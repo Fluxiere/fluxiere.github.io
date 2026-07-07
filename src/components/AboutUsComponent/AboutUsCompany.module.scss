@@ -8,7 +8,6 @@
 }
 
 .sectionHead {
-  max-width: 720px;
   margin-bottom: 72px;
 
   .eyebrow {
@@ -40,12 +39,11 @@
   }
 }
 
-// MAIN CONTENT SPLIT MATRIX
+// MAIN CONTENT STACKED MATRIX
 .aboutMatrix {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: 1fr;
   gap: 64px;
-  align-items: start;
 
   h3 {
     font-family: $font-mono;
@@ -54,11 +52,6 @@
     letter-spacing: 0.05em;
     margin-bottom: 32px;
     color: rgba($ink, 0.4);
-  }
-
-  @media (max-width: 920px) {
-    grid-template-columns: 1fr;
-    gap: 56px;
   }
 }
 
@@ -88,7 +81,6 @@
     font-size: 13.5px;
     line-height: 1.5;
     color: rgba($ink, 0.6);
-    max-width: 440px;
   }
 }
 

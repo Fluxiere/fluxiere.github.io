@@ -26,7 +26,7 @@ export const Header = () => {
         <div className={styles.actions}>
           <Link to="/contact" className={styles.navCta}>Book a Consultation</Link>
           <button className={styles.navToggle} onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? 'CLOSE' : '// MENU'}
+            {isMenuOpen ? 'CLOSE' : 'MENU'}
           </button>
         </div>
       </div>

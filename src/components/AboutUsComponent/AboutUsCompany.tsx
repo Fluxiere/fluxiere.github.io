@@ -17,7 +17,7 @@ export const AboutUsCompany: React.FC = () => {
         {/* CONTENT SPLIT GRID */}
         <div className={styles.aboutMatrix}>
           
-          {/* LEFT: MISSION & HISTORY TRAIL */}
+          {/* MISSION & HISTORY TRAIL */}
           <div className={styles.historyColumn}>
             <h3>How We Started</h3>
             <div className={styles.timelineTrail}>
@@ -34,7 +34,7 @@ export const AboutUsCompany: React.FC = () => {
             </div>
           </div>
 
-          {/* RIGHT: THE TEAM GRID (ONE PICTURE AT A TIME) */}
+          {/* THE TEAM GRID (ONE PICTURE AT A TIME) */}
           <div className={styles.teamColumn}>
             <h3>The Core Unit</h3>
             <div className={styles.teamGrid}>
