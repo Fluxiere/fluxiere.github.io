@@ -1,5 +1,5 @@
 // src/components/Terms/Terms.tsx
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import styles from './Terms.module.scss'; // Reuses your editorial spacing variables
 import { termsHeading, termsSections } from './TermsConstants';
 

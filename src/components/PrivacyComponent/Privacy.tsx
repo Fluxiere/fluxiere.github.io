@@ -1,5 +1,5 @@
 // src/components/Privacy/Privacy.tsx
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import styles from './Privacy.module.scss';
 import { privacyHeading, privacySections } from './PrivacyConstants';
 
