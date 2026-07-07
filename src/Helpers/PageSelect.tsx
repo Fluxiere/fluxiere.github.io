@@ -4,6 +4,8 @@ import About from "../pages/About/About";
 import Services from "../pages/Services/Services";
 import Careers from "../pages/Careers/Careers";
 import Contact from "../pages/ContactUs/ContactUs";
+import PrivacyPage from "../pages/Privacy/PrivacyPage";
+import TermsPage from "../pages/Terms/TermsPage";
 import InsightsPage from "../pages/Insights/Insights";
 
 function PageSelect() {
@@ -12,10 +14,11 @@ function PageSelect() {
       {/* Show Home on initial root entry */}
       <Route path="/" element={<Home />} />
       <Route path="/home" element={<Home />} />
-      
+      <Route path="/terms" element={<TermsPage />} />
       <Route path="/about" element={<About />} />
       <Route path="/services" element={<Services />} />
       <Route path="/careers" element={<Careers />} />
+      <Route path="/privacy" element={<PrivacyPage />} />
       <Route path="/contact" element={<Contact />} />
       {/* <Route path="/gallery" element={<Gallery />} />         */}
       
