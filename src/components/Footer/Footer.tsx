@@ -69,6 +69,7 @@ export const Footer = () => {
             ))}
           </span>
             <a 
+              className={styles.shooterLink}
               href="#shooter" 
               onClick={(e) => {
                 e.preventDefault();

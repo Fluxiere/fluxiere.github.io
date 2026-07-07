@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Home from "../pages/Home/Home";
 import About from "../pages/About/About";
 import Services from "../pages/Services/Services";
+import Careers from "../pages/Careers/Careers";
 import Contact from "../pages/ContactUs/ContactUs";
 import InsightsPage from "../pages/Insights/Insights";
 
@@ -14,6 +15,7 @@ function PageSelect() {
       
       <Route path="/about" element={<About />} />
       <Route path="/services" element={<Services />} />
+      <Route path="/careers" element={<Careers />} />
       <Route path="/contact" element={<Contact />} />
       {/* <Route path="/gallery" element={<Gallery />} />         */}
       

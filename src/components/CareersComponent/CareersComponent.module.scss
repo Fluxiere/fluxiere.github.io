@@ -1,0 +1,240 @@
+// src/components/Careers/Careers.module.scss
+@use '../../styles/variables' as *;
+
+.header {
+  max-width: 700px;
+  margin-bottom: 56px;
+}
+
+.headline {
+  font-family: $font-display;
+  font-weight: 600;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.1;
+  color: $ink;
+  margin-top: 8px;
+}
+
+.subtext {
+  font-size: 17px;
+  color: rgba($ink, 0.65);
+  line-height: 1.6;
+  margin-top: 18px;
+}
+
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin-bottom: 64px;
+}
+
+.pillarCard {
+  background: #ffffff;
+  border: 1px solid $line;
+  padding: 32px;
+  border-radius: 4px;
+
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: $ink;
+    margin-bottom: 12px;
+  }
+  p {
+    font-size: 14.5px;
+    color: rgba($ink, 0.6);
+    line-height: 1.5;
+  }
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid $line;
+  margin-bottom: 64px;
+}
+
+.boardTitle {
+  font-family: $font-display;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 32px;
+}
+
+.listings {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.jobCard {
+  background: #ffffff;
+  border: 1px solid $line;
+  border-radius: 4px;
+  padding: 32px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    border-color: $teal;
+  }
+
+  .meta {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .tag {
+    font-family: $font-mono;
+    font-size: 11px;
+    text-transform: uppercase;
+    background: $cream;
+    padding: 4px 8px;
+    border-radius: 3px;
+    color: rgba($ink, 0.7);
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: $ink;
+    margin-bottom: 12px;
+  }
+
+  p {
+    font-size: 15px;
+    color: rgba($ink, 0.65);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 800px;
+  }
+}
+
+.applyBtn {
+  font-family: $font-body;
+  font-weight: 600;
+  background: transparent;
+  border: none;
+  color: $teal-dark;
+  cursor: pointer;
+  padding: 0;
+  font-size: 14.5px;
+
+  &:hover {
+    color: $teal;
+    text-decoration: underline;
+  }
+}
+
+.formWrapper {
+  background: #ffffff;
+  border: 2px solid $ink;
+  border-radius: 4px;
+  padding: 40px;
+  margin-top: 64px;
+  animation: fadeIn 0.3s ease-in-out;
+
+  h3 {
+    font-size: 22px;
+    margin-bottom: 24px;
+  }
+  .highlight {
+    color: $teal-dark;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  label {
+    font-size: 13.5px;
+    font-weight: 500;
+  }
+
+  input, textarea {
+    font-family: $font-body;
+    font-size: 14.5px;
+    padding: 12px;
+    background: $cream;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    width: 100%;
+
+    &:focus {
+      outline: none;
+      border-color: $teal;
+    }
+  }
+}
+
+.submitBtn {
+  font-weight: 600;
+  padding: 14px;
+  background: $ink;
+  color: $cream;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+
+  &:hover {
+    background: $teal;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.internBox {
+  background: $cream; // Or fallback to a very light gray if $cream is white
+  border: 1px dashed $line;
+  border-radius: 4px;
+  padding: 40px;
+  max-width: 800px;
+
+  .internNoticeMeta {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: $ink;
+    margin-bottom: 12px;
+  }
+
+  p {
+    font-size: 15.5px;
+    color: rgba($ink, 0.7);
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+}
+
+.internApplyBtn {
+  font-family: $font-body;
+  font-weight: 600;
+  font-size: 14.5px;
+  padding: 12px 24px;
+  background: $ink;
+  color: $cream;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: $teal;
+  }
+}

@@ -19,6 +19,7 @@ export const footerCompanyLinks = [
   { label: 'About', to: '/about' },
   { label: 'Insights', to: '/insights' },
   { label: 'Contact', to: '/contact' },
+  { label: 'Careers', to: '/careers' },
 ];
 
 export const footerSupportEmail = 'buildwithfluxiere@gmail.com';
