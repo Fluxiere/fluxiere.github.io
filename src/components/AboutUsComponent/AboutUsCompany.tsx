@@ -34,27 +34,28 @@ export const AboutUsCompany: React.FC = () => {
             </div>
           </div>
 
-          {/* THE TEAM GRID (ONE PICTURE AT A TIME) */}
+          {/* THE TEAM GRID (REWORKED DISPLAY) */}
           <div className={styles.teamColumn}>
             <h3>The Core Unit</h3>
             <div className={styles.teamGrid}>
               {teamRoster.map((member, index) => (
                 <div key={index} className={styles.memberCard}>
-                  <div className={styles.avatarRow}>
-                    <div className={styles.imageFrame}>
-                      <img 
-                        src={member.imgSrc} 
-                        alt={member.name} 
-                        className={styles.avatarPhoto}
-                        loading="lazy"
-                      />
-                    </div>
-                    <div className={styles.nameMeta}>
-                      <h4>{member.name}</h4>
-                      <span>{member.role}</span>
+                  <div className={styles.imageContainer}>
+                    <img 
+                      src={member.imgSrc} 
+                      alt={member.name} 
+                      className={styles.avatarPhoto}
+                      loading="lazy"
+                    />
+                    {/* Text content sits inside the gradient vector box */}
+                    <div className={styles.gradientOverlay}>
+                      <div className={styles.nameMeta}>
+                        <h4>{member.name}</h4>
+                        <span>{member.role}</span>
+                      </div>
+                      <p className={styles.memberBio}>{member.bio}</p>
                     </div>
                   </div>
-                  <p className={styles.memberBio}>{member.bio}</p>
                 </div>
               ))}
             </div>

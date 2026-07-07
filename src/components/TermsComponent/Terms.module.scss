@@ -1,0 +1,61 @@
+// src/components/Terms/Terms.module.scss
+@use '../../styles/variables' as *;
+
+.termsPage {
+  background: transparent;
+  padding-top: clamp(40px, 8vw, 80px);
+  padding-bottom: clamp(64px, 10vw, 120px);
+}
+
+.header {
+  max-width: 680px;
+  margin-bottom: 32px;
+}
+
+.headline {
+  font-family: $font-display;
+  font-weight: 600;
+  font-size: clamp(36px, 4.5vw, 52px);
+  line-height: 1.1;
+  color: $ink;
+  margin-top: 8px;
+}
+
+.meta {
+  font-family: $font-mono;
+  font-size: 11.5px;
+  color: rgba($ink, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 14px;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid $line;
+  margin-bottom: 48px;
+}
+
+.contentBody {
+  max-width: 680px; 
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.legalSection {
+  h2 {
+    font-family: $font-body;
+    font-weight: 600;
+    font-size: 17px;
+    color: $ink;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    font-size: 15px;
+    color: rgba($ink, 0.7);
+    line-height: 1.65;
+  }
+}

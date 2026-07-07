@@ -63,9 +63,9 @@ export const Footer = () => {
           <span>{footerCopyright}</span>
           <span className={styles.legal}>
             {footerLegalLinks.map((item) => (
-              <a key={item.label} href={item.href}>
+              <Link key={item.label} to={item.to}>
                 {item.label}
-              </a>
+              </Link>
             ))}
           </span>
             <a 

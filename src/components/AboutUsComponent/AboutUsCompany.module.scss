@@ -109,93 +109,110 @@
 }
 
 // RIGHT COLUMN: INDIVIDUAL TEAM GRID
+
+// ... keeping your header and timeline styles intact ...
+
 .teamColumn {
   position: relative;
+  width: 100%;
 }
 
 .teamGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-
-  @media (max-width: 600px) {
-    grid-template-columns: 1fr;
-  }
+  // Professional 4-column layout that scales down gracefully
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  width: 100%;
+  margin-top: 32px;
 }
 
 .memberCard {
-  background: #ffffff;
-  border: 1px solid $line;
-  border-radius: 6px;
-  padding: 24px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+  position: relative;
+  background: $ink; // Sets the bottom base card matching your dark ink color
+  border-radius: 12px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  aspect-ratio: 2 / 3; // Enforces a tall, elegant vertical card proportion
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
+  border: 1px solid rgba($line, 0.1);
 
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.02);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    
+    .avatarPhoto {
+      transform: scale(1.04);
+    }
   }
 }
 
-.avatarRow {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 16px;
-}
-
-// Premium Frame for Individual Profile Images
-.minimalAvatar {
-  width: 46px;
-  height: 46px;
-  background: rgba($ink, 0.03);
-  border: 1px solid $line;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: $font-display;
-  font-size: 16px;
-  font-weight: 600;
-  color: $teal-dark;
-  overflow: hidden;
+.imageContainer {
   position: relative;
-  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
 }
 
-// Cover image fitting inside frames flawlessly without distortion
-.avatarImage {
+.avatarPhoto {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center top; // Ensures faces don't get cut off
   display: block;
+  filter: grayscale(100%); // Optional: matches the high-end editorial look in the reference image
+  mix-blend-mode: luminosity; // Blends the photo beautifully into your background tint
+  transition: transform 0.4s ease;
+}
+
+// The Gradient Cover overlay that blends the photo into the bottom card text area
+.gradientOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  // Transitions from clear, into an option-tint, to your deep background base color
+  background: linear-gradient(
+    to bottom,
+    rgba($ink, 0) 30%,
+    rgba($teal-dark, 0.4) 60%,
+    rgba($ink, 0.95) 85%,
+    $ink 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; // Pushes the text group to the bottom of the card
+  padding: 24px 20px;
+  text-align: center; // Centers text matching the layout template
 }
 
 .nameMeta {
+  margin-bottom: 8px;
+
   h4 {
     font-family: $font-display;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 600;
-    color: $ink;
+    color: $cream; // Crisp light typography over the dark card mask
     line-height: 1.2;
-    margin-bottom: 2px;
+    margin: 0 0 4px 0;
+    letter-spacing: -0.01em;
   }
   
   span {
     font-family: $font-mono;
-    font-size: 10.5px;
-    color: rgba($ink, 0.45);
+    font-size: 11px;
+    color: $teal; // Accented color for role designations
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     display: block;
   }
 }
 
 .memberBio {
-  font-size: 13px;
-  line-height: 1.45;
-  color: rgba($ink, 0.55);
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: rgba($cream, 0.65);
   margin: 0;
+  font-weight: 400;
 }

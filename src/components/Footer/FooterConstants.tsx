@@ -25,8 +25,8 @@ export const footerCompanyLinks = [
 export const footerSupportEmail = 'buildwithfluxiere@gmail.com';
 
 export const footerLegalLinks = [
-  { label: 'Privacy', href: '#' },
-  { label: 'Terms', href: '#' },
+  { label: 'Privacy', to: '/privacy' },
+  { label: 'Terms', to: '/terms' },
 ];
 
 export const footerCopyright = '© 2026 Fluxière. All rights reserved.';
