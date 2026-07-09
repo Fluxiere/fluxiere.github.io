@@ -9,8 +9,8 @@ export const Header = () => {
     <header className={styles.siteHeader}>
       <div className={styles.navContainer}>
         <Link to="/home" className={styles.logo} onClick={() => setIsMenuOpen(false)}>
-          <img src="/Logo/Fluxiere-NoBg.png" alt="Fluxière logo" className={styles.logoImage} />
-          Fluxière
+          <img src="/Logo/Fluxiere-logo.png" alt="Fluxière logo" className={styles.logoImage} />
+          <img src="/Logo/Fluxiere-Text.png" alt="Fluxière logo" className={styles.logoText} />
         </Link>
         
         <nav className={`${styles.links} ${isMenuOpen ? styles.mobileOpen : ''}`}>
