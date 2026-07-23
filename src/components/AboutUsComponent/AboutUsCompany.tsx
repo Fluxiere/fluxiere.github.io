@@ -1,5 +1,5 @@
 import React from 'react';
-import { aboutHeading, historyTimeline, teamRoster } from './AboutUsConstants';
+import { aboutHeading, historyTimeline, teamCopy, teamRoster, historyTrail } from './AboutUsConstants';
 import styles from './AboutUsCompany.module.scss';
 
 export const AboutUsCompany: React.FC = () => {
@@ -19,7 +19,7 @@ export const AboutUsCompany: React.FC = () => {
           
           {/* MISSION & HISTORY TRAIL */}
           <div className={styles.historyColumn}>
-            <h3>How We Started</h3>
+            <h3>{historyTrail.title}</h3>
             <div className={styles.timelineTrail}>
               {historyTimeline.map((item, index) => (
                 <div key={index} className={styles.milestoneBlock}>
@@ -34,9 +34,9 @@ export const AboutUsCompany: React.FC = () => {
             </div>
           </div>
 
-          {/* THE TEAM GRID (REWORKED DISPLAY) */}
+          {/* THE TEAM GRID*/}
           <div className={styles.teamColumn}>
-            <h3>The Core Unit</h3>
+            <h3>{teamCopy.title}</h3>
             <div className={styles.teamGrid}>
               {teamRoster.map((member, index) => (
                 <div key={index} className={styles.memberCard}>

@@ -12,9 +12,9 @@ export interface TeamMember {
 }
 
 export const aboutHeading = {
-  eyebrow: 'Our Story',
-  title: 'Built to engineer leverage.',
-  subtitle: 'We started by fixing broken data loops. Today, we design the software engines that keep scaling enterprises clear of operational friction.'
+  eyebrow: 'ABOUT FLUXIÈRE',
+  title: 'Building Intelligent Systems That Help Businesses Scale.',
+  subtitle: 'Fluxière is an AI automation and custom software company helping businesses streamline operations, eliminate repetitive work, and accelerate growth through intelligent technology solutions. We combine automation, software engineering, and AI to build systems that create measurable business value.'
 };
 
 export const historyTimeline: HistoryMilestone[] = [
@@ -30,24 +30,30 @@ export const historyTimeline: HistoryMilestone[] = [
   }
 ];
 
+export const teamCopy = {
+   title: 'The Team Behind Fluxière',};
+
+export const historyTrail = {
+   title: 'How We Started',};
+
 export const teamRoster: TeamMember[] = [
   {
-    name: 'PRASANNA VENKATESH 𓂀',
-    role: '✨ 𝕊𝕠𝕚𝕤 𝕦𝕟𝕖 𝕧𝕠𝕚𝕩, 𝕡𝕒𝕤 𝕦𝕟 é𝕔𝕙𝕠 ✨',
-    bio: 'ᴍʏ ɪɴᴠᴏᴄᴀᴛɪᴏɴ ꜱᴜᴍᴍᴏɴ ᴀɴ ᴏᴄᴄᴜʟᴛ & ᴀʀᴄᴀɴᴇ 🪄🔮',
+    name: 'Prasanna Venkatesh',
+    role: 'Co-Founder & CEO',
+    bio: 'Leads Fluxière with a forward-thinking vision, combining strategic leadership, business acumen, and a customer-first mindset to build lasting partnerships and empower businesses through AI automation, custom software, and continuous innovation.',
     imgSrc: '/assets/team/PV.jpeg' 
     
   },
   {
-    name: 'Vasanth Kumar AM',
-    role: 'Founder, Systems Architect & Wizard',
-    bio: 'Specializes in mapping complex workflow choke points into streamlined, high-velocity automation pipelines.',
+    name: 'Vasanth Kumar',
+    role: 'Co-Founder & CTO',
+    bio: 'Leads the entire technology vision at Fluxière, overseeing software architecture, AI innovation, engineering excellence, cloud infrastructure, and systems integration to deliver secure, scalable, and future-ready business solutions',
     imgSrc: '/assets/team/Vasanth.png' // Path to Vasan's individual photo
   },
   {
-    name: 'Vasanth Kumar AM',
-    role: 'Founder, Systems Architect & Wizard',
-    bio: 'Specializes in mapping complex workflow choke points into streamlined, high-velocity automation pipelines.',
+    name: 'Sarvesh',
+    role: 'Co-Founder & Head of Engineering',
+    bio: 'Leads the automation practice by designing and delivering AI-powered automation, API integrations, and custom software solutions that improve operational efficiency and drive business growth',
     imgSrc: '/assets/team/Vasanth.jpg' // Path to Vasan's individual photo
   },
   // {

@@ -7,39 +7,55 @@ export interface ProcessStep {
 }
 
 export const approachSectionText = {
-  eyebrow: 'How We Work',
-  title: 'Four stages, one accountable build',
-  description: 'Every engagement follows a structured framework so you always track delivery benchmarks cleanly.',
+  eyebrow: 'HOW WE DELIVER AI AUTOMATION',
+  title: 'From Strategy to Scale—A Proven AI Delivery Process',
+  description: "Every AI automation and custom software project follows a structured framework that minimizes risk, ensures transparency, and delivers measurable business outcomes.",
   benchmarkHeading: 'Phase Benchmarks & Objectives'
 };
 
 export const stepsData: ProcessStep[] = [
   {
-    idx: 'Ⅰ / Audit',
+    idx: 'Ⅰ / Discover & Audit',
     shortNum: 'Ⅰ',
-    title: 'Map the workflow',
-    desc: 'We shadow your operations as they run today to locate exactly where time, manual errors, and accuracy are leaking out of your pipeline.',
-    deliverables: ['Data friction mapping', 'Operational velocity baseline', 'Automation opportunity log']
+    title: 'Understand Before We Automate ',
+    desc: 'We analyze your business processes, identify repetitive tasks, evaluate your technology stack, and uncover the highest-impact automation opportunities.',
+    deliverables: ['Business process assessment',
+                   'Workflow mapping',
+                   'Automation opportunity report',
+                   'Technology & integration audit',
+                    'ROI estimation']
   },
   {
-    idx: 'Ⅱ / Design',
+    idx: 'Ⅱ / Solution Design',
     shortNum: 'Ⅱ',
-    title: 'Design the system',
-    desc: 'A scoped structural plan defining the exact logic, database schemas, third-party APIs, and human-in-the-loop checkpoints before any code is deployed.',
-    deliverables: ['Pipeline logic blueprints', 'Data schema configurations', 'Milestone delivery timeline']
+    title: 'Design Intelligent Workflows',
+    desc: 'Our team designs AI-powered workflows, system architecture, integrations, and implementation strategies tailored to your business goals.',
+    deliverables: ['AI automation blueprint',
+                   'System architecture',
+                   'API & integration strategy',
+                   'User journey mapping',
+                   'Project roadmap']
   },
   {
-    idx: 'Ⅲ / Build',
+    idx: 'Ⅲ / Build & Integrate',
     shortNum: 'Ⅲ',
-    title: 'Build & integrate',
-    desc: 'We engineer against your real-world data sandboxes, staging modular features with operational demos at every single milestone build.',
-    deliverables: ['Custom environment builds', 'API integrations', 'Fidelity telemetry validation']
+    title: 'Build, Test & Deploy',
+    desc: 'We develop custom software, AI agents, automations, and integrations while ensuring security, scalability, and performance.',
+    deliverables: ['AI workflow implementation',
+                   'Custom software development',
+                   'CRM & ERP integrations',
+                   'Quality assurance',
+                   'User acceptance testing']
   },
   {
-    idx: 'Ⅳ / Run',
+    idx: 'Ⅳ / Optimize & Scale',
     shortNum: 'Ⅳ',
-    title: 'Launch & support',
-    desc: 'Your automated systems launch seamlessly with zero active production downtime. We continuously tune prompts, monitor errors, and optimize code logs.',
-    deliverables: ['Production sync execution', 'Continuous prompt calibrations', 'Infrastructure log support']
+    title: 'Measure. Improve. Grow.',
+    desc: "After deployment, we monitor performance, optimize workflows, and continuously improve your automation to maximize ROI.",
+    deliverables: ['Performance dashboards',
+                   'KPI tracking',
+                   'Workflow optimization',
+                   'Ongoing support',
+                   'Continuous improvements']
   }
 ];

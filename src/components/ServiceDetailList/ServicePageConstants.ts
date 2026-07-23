@@ -11,42 +11,42 @@ export const ServiceDetailList: ProcessStep[] = [
     phase: '🤖',
     badge: 'AI Process Automation',
     title: 'Automate repetitive workflows',
-    description: 'We map your manual operations and replace them with intelligent pipelines that run without daily intervention. This includes document extraction, approvals, and CRM workflow automation.',
+    description: 'Automate repetitive business processes with AI Process Automation and AI-powered Workflow Automation solutions that eliminate manual tasks, streamline operations, improve operational efficiency, and help your team achieve more with greater speed and accuracy.',
     deliverables: ['Workflow automation blueprint', 'Automated data capture pipelines', 'AI-driven approval & routing systems']
   },
   {
     phase: '💬',
     badge: 'AI Chatbots & Assistants',
     title: 'Build conversational systems',
-    description: 'Conversational AI that handles support, sales, and internal questions in your brand voice. We combine knowledge retrieval with automated handoffs to improve accuracy and response speed.',
+    description: 'Deploy intelligent AI Chatbots and AI Assistants that automate customer support, qualify leads, answer business queries, and deliver personalized conversational AI experiences across websites, WhatsApp, and other digital channels—24/7.',
     deliverables: ['RAG-enabled knowledge assistants', 'Lead qualification & support bots', 'Automated response and escalation flows']
   },
   {
     phase: '🛠️',
     badge: 'Custom Software',
     title: 'Deliver tailored ERP/CRM platforms',
-    description: 'Custom internal systems built around how your team actually works, not the other way around. We connect data, workflows, and reporting into one secure operational platform.',
+    description: 'Build scalable Custom Software Development solutions tailored to your business, including custom ERP Development, CRM Development, enterprise software, and business applications designed to streamline operations and support long-term growth.',
     deliverables: ['Integrated ERP/CRM workflows', 'Custom dashboards & reporting', 'Secure automated operations platform']
   },
   {
     phase: '📊',
     badge: 'Data & Analytics Automation',
     title: 'Turn data into actionable operations',
-    description: 'We connect every system in your stack and automate reporting so your team can make better decisions without manual spreadsheet updates. Dashboards refresh automatically and alerts catch anomalies before they hurt the business.',
+    description: 'Transform business data into actionable insights with Data & Analytics Automation, AI-powered analytics, Business Intelligence dashboards, automated reporting, and real-time dashboards that enable faster, data-driven decision-making.',
     deliverables: ['Automated reporting pipelines', 'KPI dashboard implementation', 'Forecasting and anomaly monitoring']
   },
   {
     phase: '🔗',
     badge: 'Systems Integration',
     title: 'Connect your tools into one workflow',
-    description: 'We integrate your existing platforms, APIs, and legacy systems so data moves reliably between the tools your teams use every day. This eliminates manual copy/paste and accelerates cross-functional handoffs.',
+    description: 'Connect your CRM, ERP, APIs, cloud platforms, and third-party business applications through seamless Systems Integration, API Integration, and Cloud Integration solutions that improve data flow, automate processes, and eliminate information silos.',
     deliverables: ['API integration architecture', 'Legacy system modernization', 'Cross-platform data sync']
   },
   {
     phase: '📈',
     badge: 'Strategy & Audit',
     title: 'Find the highest-impact automation opportunity',
-    description: 'We audit your operations and identify the automation projects that deliver the biggest ROI fastest. The result is a clear plan for what to build, and what not to build.',
+    description: 'Start your digital transformation journey with a comprehensive AI Strategy and Automation Audit that evaluates business workflows, identifies automation opportunities, performs workflow analysis, and delivers a practical automation roadmap focused on measurable ROI.',
     deliverables: ['Workflow and cost audit', 'Automation roadmap', 'ROI-prioritized implementation plan']
   }
 ];
