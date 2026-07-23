@@ -57,7 +57,6 @@ export const CareersComponent = () => {
           mobile: formData.mobile,
           domain: formData.domain,
           note: formData.note,
-          job: selectedJob,
           _subject: `New Internship Inquiry for ${selectedJob}`,
           _captcha: 'false'
         })

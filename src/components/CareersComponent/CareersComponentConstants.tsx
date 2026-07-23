@@ -110,7 +110,7 @@ export const applicationCopy = {
     },
     {
       key: 'domain',
-      label: 'Company Domain',
+      label: 'Domain that interests you (e.g., AI, Automation, Web Development)',
       placeholder: 'yourcompany.com',
       type: 'text'
     },
