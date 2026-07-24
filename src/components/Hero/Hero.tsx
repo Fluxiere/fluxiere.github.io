@@ -28,8 +28,8 @@ export const Hero = () => {
           </p>
           
           <div className={styles.actions}>
-            <a href="#contact" className={styles.btnPrimary}>Book Free Consultation →</a>
-            <a href="#services" className={styles.btnSecondary}>See What We Build</a>
+            <a href="contact" className={styles.btnPrimary}>Book Free Consultation →</a>
+            <a href="services" className={styles.btnSecondary}>See What We Build</a>
           </div>
         </div>
         

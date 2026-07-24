@@ -50,3 +50,5 @@ export const ServiceDetailList: ProcessStep[] = [
     deliverables: ['Workflow and cost audit', 'Automation roadmap', 'ROI-prioritized implementation plan']
   }
 ];
+
+export const  EXPLORE_SERVICE_CTA = 'Explore ';

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styles from './ServiceDetailList.module.scss';
-import { ServiceDetailList } from './ServicePageConstants';
+import { ServiceDetailList, EXPLORE_SERVICE_CTA } from './ServicePageConstants';
 
 export const DetailedServices = () => {
   const [activeStep, setActiveStep] = useState<number>(0);
@@ -57,6 +57,9 @@ export const DetailedServices = () => {
                   ))}
                 </ul>
               </div>
+                <a href="contact" className={styles.go}>
+                  {EXPLORE_SERVICE_CTA}{item.badge} <span className={styles.arrow}>→</span>
+                </a>
             </div>
           ))}
         </div>
